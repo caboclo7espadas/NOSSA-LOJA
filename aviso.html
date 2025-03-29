@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site em Manutenção | Terreiro Caboclo das 7 Espadas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #cc9900;
@@ -180,9 +181,6 @@
         </div>
     </div>
 
-    <!-- Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <script>
         // Configuração para 90 dias
         const maintenanceDays = 90;
@@ -206,8 +204,8 @@
         // Controle de exibição
         document.getElementById('access-site').addEventListener('click', function(e) {
             if(document.getElementById('dont-show-again').checked) {
-                localStorage.setItem('maintenanceIgnored', 'true');
-                localStorage.setItem('ignoreUntil', endDate.getTime());
+                localStorage.setItem('manutencaoIgnorada', 'true');
+                localStorage.setItem('manutencaoIgnoradaAte', endDate.getTime());
             }
         });
         
