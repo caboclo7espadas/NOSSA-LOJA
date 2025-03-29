@@ -2803,6 +2803,12 @@
 
     <!-- JavaScript -->
     <script>
+        // No index.html
+const MANUTENCAO_ATIVA = true; // Fácil ativação/desativação
+
+// No aviso.html
+localStorage.setItem('manutencaoIgnorada', 'true'); // Quando usuário opta por ignorar
+             
         // Função para mostrar a categoria selecionada no mobile
         function showSelectedCategory() {
             try {
