@@ -808,7 +808,7 @@
         const PAGINA_MANUTENCAO = "aviso.html";
         
         // Verifica se deve redirecionar
-        if (MANUTENCAO_ATIVA && !window.location.href.includes(PAGINA_MANUTENCAO)) {
+        if (MANUTENCAO_ATIVA && !window.location.pathname.includes(PAGINA_MANUTENCAO)) {
             const manutencaoInicio = new Date();
             const manutencaoFim = new Date();
             manutencaoFim.setDate(manutencaoInicio.getDate() + DIAS_MANUTENCAO);
@@ -840,7 +840,7 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        display: none; /* Inicialmente escondido */
+        display: none;
     ">
         🚧 <strong>ESTAMOS EM MELHORIAS!</strong> 🚧<br>
         Nosso site está passando por otimizações. Algumas funcionalidades podem variar entre dispositivos.
@@ -869,6 +869,7 @@
             document.querySelector('.site-notice').style.display = 'block';
         }
     </script>
+
     </div>
 
     <!-- Restante do seu conteúdo -->
@@ -2803,12 +2804,6 @@
 
     <!-- JavaScript -->
     <script>
-        // No index.html
-const MANUTENCAO_ATIVA = true; // Fácil ativação/desativação
-
-// No aviso.html
-localStorage.setItem('manutencaoIgnorada', 'true'); // Quando usuário opta por ignorar
-             
         // Função para mostrar a categoria selecionada no mobile
         function showSelectedCategory() {
             try {
