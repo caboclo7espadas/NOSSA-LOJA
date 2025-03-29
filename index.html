@@ -801,16 +801,20 @@
 </head>
 <body class="dark-theme">
     <script>
-        // Configuração para 90 dias
-        const maintenanceDays = 90;
-        const maintenanceStart = new Date();
-        const maintenanceEnd = new Date(maintenanceStart);
-        maintenanceEnd.setDate(maintenanceStart.getDate() + maintenanceDays);
-        
-        // Verifica se o usuário já optou por ignorar
+    // Configuração para 90 dias
+    const maintenanceDays = 90;
+    const maintenanceStart = new Date();
+    const maintenanceEnd = new Date(maintenanceStart);
+    maintenanceEnd.setDate(maintenanceStart.getDate() + maintenanceDays);
+
+    // Verifica se já está na página de aviso
+    const isMaintenancePage = window.location.pathname.includes('aviso.html');
+
+    // Se NÃO estiver na página de manutenção, verifica se deve redirecionar
+    if (!isMaintenancePage) {
         const maintenanceIgnored = localStorage.getItem('maintenanceIgnored');
         const ignoreUntil = localStorage.getItem('ignoreUntil');
-        
+
         // Se não tiver ignorado OU o período de ignorar já expirou
         if (!maintenanceIgnored || (ignoreUntil && Date.now() > parseInt(ignoreUntil))) {
             // Se ainda estiver no período de manutenção
@@ -818,7 +822,8 @@
                 window.location.href = 'aviso.html';
             }
         }
-    </script>
+    }
+</script>
 
     <!-- Banner de aviso fixo -->
     <div class="site-notice" style="
