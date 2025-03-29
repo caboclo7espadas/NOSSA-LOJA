@@ -800,22 +800,28 @@
     </style>
 </head>
 <body class="dark-theme">
+    <!-- SCRIPT DE REDIRECIONAMENTO PARA MANUTENÇÃO -->
     <script>
-        // Configuração para 90 dias
-        const maintenanceDays = 90;
-        const maintenanceStart = new Date();
-        const maintenanceEnd = new Date(maintenanceStart);
-        maintenanceEnd.setDate(maintenanceStart.getDate() + maintenanceDays);
+        // Configurações (EDITÁVEIS)
+        const MANUTENCAO_ATIVA = true; // Mudar para false quando terminar
+        const DIAS_MANUTENCAO = 90;
+        const PAGINA_MANUTENCAO = "aviso.html";
         
-        // Verifica se o usuário já optou por ignorar
-        const maintenanceIgnored = localStorage.getItem('maintenanceIgnored');
-        const ignoreUntil = localStorage.getItem('ignoreUntil');
-        
-        // Se não tiver ignorado OU o período de ignorar já expirou
-        if (!maintenanceIgnored || (ignoreUntil && Date.now() > parseInt(ignoreUntil))) {
-            // Se ainda estiver no período de manutenção
-            if (Date.now() < maintenanceEnd.getTime()) {
-                window.location.href = 'aviso.html';
+        // Verifica se deve redirecionar
+        if (MANUTENCAO_ATIVA && !window.location.pathname.includes(PAGINA_MANUTENCAO)) {
+            const manutencaoInicio = new Date();
+            const manutencaoFim = new Date();
+            manutencaoFim.setDate(manutencaoInicio.getDate() + DIAS_MANUTENCAO);
+            
+            const ignorado = localStorage.getItem('manutencaoIgnorada');
+            const ignoradoAte = localStorage.getItem('manutencaoIgnoradaAte');
+            
+            // Se não tiver ignorado OU o período de ignorar já expirou
+            if (!ignorado || (ignoradoAte && Date.now() > parseInt(ignoradoAte))) {
+                // Se ainda estiver no período de manutenção
+                if (Date.now() < manutencaoFim.getTime()) {
+                    window.location.href = PAGINA_MANUTENCAO;
+                }
             }
         }
     </script>
@@ -834,15 +840,14 @@
         left: 0;
         right: 0;
         z-index: 1000;
+        display: none;
     ">
         🚧 <strong>ESTAMOS EM MELHORIAS!</strong> 🚧<br>
-        Nosso site de vendas está passando por testes para otimização em computadores, celulares e tablets.
-        Algumas funcionalidades podem variar entre dispositivos durante este período.
-        Agradecemos sua paciência!<br>
+        Nosso site está passando por otimizações. Algumas funcionalidades podem variar entre dispositivos.
         <button onclick="
             this.parentNode.style.display='none';
-            localStorage.setItem('ignoredMaintenance', 'true');
-            localStorage.setItem('ignoreExpiry', Date.now() + (24 * 60 * 60 * 1000)); // Ignora por 1 dia
+            localStorage.setItem('manutencaoBannerIgnorado', 'true');
+            localStorage.setItem('manutencaoBannerIgnoradoAte', Date.now() + (24 * 60 * 60 * 1000));
         " style="
             background: #000;
             color: #fff;
@@ -854,6 +859,17 @@
         ">
             Entendi
         </button>
+    </div>
+
+    <script>
+        // Mostra banner apenas se não tiver sido ignorado
+        if (!localStorage.getItem('manutencaoBannerIgnorado') || 
+            (localStorage.getItem('manutencaoBannerIgnoradoAte') && 
+             Date.now() > parseInt(localStorage.getItem('manutencaoBannerIgnoradoAte')))) {
+            document.querySelector('.site-notice').style.display = 'block';
+        }
+    </script>
+
     </div>
 
     <!-- Restante do seu conteúdo -->
