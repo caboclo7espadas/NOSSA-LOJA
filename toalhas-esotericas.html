@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toalhas Esotéricas - Umbanda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* [Manter todos os estilos da página de alguidares] */
+    </style>
+</head>
+<body>
+    <header>
+        <!-- [Manter todo o cabeçalho da página de alguidares] -->
+    </header>
+
+    <main class="container">
+        <div class="product-grid">
+            <!-- Toalha de Mesa para Trabalhos -->
+            <div class="product-card">
+                <div class="product-gallery">
+                    <div class="main-product-image-container">
+                        <img id="main-image-te1" src="img/toalha-trabalhos.jpg" alt="Toalha de Mesa para Trabalhos" class="main-product-image">
+                    </div>
+                    <div class="gallery-thumbnails">
+                        <img src="img/toalha-trabalhos.jpg" alt="Toalha de Mesa para Trabalhos - Detalhe 1" onclick="changeMainImage('main-image-te1', this.src, this.alt)">
+                        <img src="img/toalha-trabalhos-2.jpg" alt="Toalha de Mesa para Trabalhos - Detalhe 2" onclick="changeMainImage('main-image-te1', this.src, this.alt)">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2>Toalha de Mesa para Trabalhos</h2>
+                    <p class="product-description">
+                        Toalha de mesa branca com símbolos esotéricos bordados, tamanho 1,20m x 1,20m, 100% algodão.
+                    </p>
+                    <p class="price" data-price="75.00">R$ 75,00</p>
+                    <div class="quantity-control">
+                        <button class="decrease" onclick="decreaseQuantity('quantity-te1')">-</button>
+                        <input type="number" id="quantity-te1" value="1" min="1" max="99">
+                        <button class="increase" onclick="increaseQuantity('quantity-te1')">+</button>
+                    </div>
+                    <p class="total-price">Total: R$ <span id="total-price-te1">75,00</span></p>
+                    <div class="buttons">
+                        <button class="add-to-cart" onclick="addToCart('Toalha de Mesa para Trabalhos', 75.00, 'quantity-te1')">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao carrinho
+                        </button>
+                        <button class="add-to-wishlist">
+                            <i class="fas fa-heart"></i> Adicionar à lista de desejos
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- [Adicionar outros produtos da mesma categoria seguindo o mesmo padrão] -->
+        </div>
+    </main>
+
+    <!-- [Manter o mesmo rodapé e JavaScript da página de alguidares] -->
+</body>
+</html>

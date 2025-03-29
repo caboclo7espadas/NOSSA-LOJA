@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site em Manutenção | Terreiro Caboclo das 7 Espadas</title>
+    <style>
+        :root {
+            --primary: #cc9900;
+            --secondary: #000;
+            --text: #333;
+            --bg: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        
+        .maintenance-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 800px;
+            margin: 20px;
+            border-top: 5px solid var(--primary);
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .logo {
+            max-width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .device-status {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 25px 0;
+            gap: 15px;
+        }
+        
+        .status-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        ul {
+            text-align: left;
+            margin-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .countdown {
+            font-size: 18px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 600px) {
+            .maintenance-container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .status-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-container">
+        <img src="img/logo.png" alt="Logo Terreiro Caboclo 7 Espadas" class="logo">
+        
+        <h1>🚧 ATENÇÃO: Site em Melhorias! 🚧</h1>
+        <p>Estamos trabalhando para otimizar sua experiência em todos os dispositivos. Algumas funcionalidades podem estar temporariamente limitadas.</p>
+        
+        <div class="countdown" id="countdown">
+            Previsão de conclusão: <span id="days-left"></span> dias
+        </div>
+        
+        <div class="device-status">
+            <div class="status-item">
+                <h3>💻 Computadores</h3>
+                <p>Ajustes de compatibilidade em andamento</p>
+            </div>
+            <div class="status-item">
+                <h3>📱 Celulares</h3>
+                <p>Versão estável com pequenos ajustes</p>
+            </div>
+            <div class="status-item">
+                <h3>🖥 Tablets</h3>
+                <p>Testes de layout em desenvolvimento</p>
+            </div>
+        </div>
+
+        <h2>Problemas Conhecidos</h2>
+        <ul>
+            <li><strong>Imagens:</strong> Podem não carregar em alguns navegadores (solução: Ctrl+F5)</li>
+            <li><strong>Celulares:</strong> Carregamento lento em conexões 3G</li>
+            <li><strong>Tablets:</strong> Ajustes de alinhamento em andamento</li>
+        </ul>
+
+        <h2>Como Você Pode Ajudar?</h2>
+        <p>Relate qualquer problema encontrado para nossa equipe:</p>
+        
+        <div style="margin: 20px 0;">
+            <a href="https://wa.me/5511982551647" class="btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:contato@terreiro7espadas.com" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> E-mail
+            </a>
+        </div>
+        
+        <div style="margin-top: 30px; font-size: 14px;">
+            <label>
+                <input type="checkbox" id="dont-show-again"> Não mostrar este aviso novamente
+            </label>
+            <p style="margin-top: 10px;">
+                <a href="index.html" id="access-site" style="color: var(--primary); font-weight: bold;">
+                    Acessar Site mesmo assim →
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+        // Configuração para 90 dias
+        const maintenanceDays = 90;
+        const startDate = new Date();
+        const endDate = new Date(startDate);
+        endDate.setDate(startDate.getDate() + maintenanceDays);
+        
+        // Atualiza o contador
+        function updateCountdown() {
+            const today = new Date();
+            const timeDiff = endDate - today;
+            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('days-left').textContent = daysLeft;
+            
+            if(daysLeft <= 0) {
+                document.getElementById('countdown').textContent = "Manutenção concluída!";
+            }
+        }
+        
+        // Controle de exibição
+        document.getElementById('access-site').addEventListener('click', function(e) {
+            if(document.getElementById('dont-show-again').checked) {
+                localStorage.setItem('maintenanceIgnored', 'true');
+                localStorage.setItem('ignoreUntil', endDate.getTime());
+            }
+        });
+        
+        // Inicialização
+        updateCountdown();
+        setInterval(updateCountdown, 86400000); // Atualiza diariamente
+    </script>
+</body>
+</html>

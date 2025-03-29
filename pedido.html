@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4267B2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Finalizar Pedido</h2>
+        <form id="pedidoForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+
+            <button type="submit">Gerar PDF e Enviar Pedido</button>
+        </form>
+    </div>
+
+    <script>
+        // Captura os parâmetros da URL (simula o carrinho)
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product');
+        const quantity = urlParams.get('quantity');
+        const total = urlParams.get('total');
+
+        document.getElementById('pedidoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+
+            // Usando jsPDF para gerar o PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text(`Nome: ${nome}`, 10, 10);
+            doc.text(`Telefone: ${telefone}`, 10, 20);
+            doc.text(`Produto: ${product}`, 10, 30);
+            doc.text(`Quantidade: ${quantity}`, 10, 40);
+            doc.text(`Total: R$ ${total}`, 10, 50);
+            doc.save('pedido.pdf');
+
+            // Dados do pedido
+            const pedidoData = {
+                nome: nome,
+                telefone: telefone,
+                produto: product,
+                quantidade: quantity,
+                total: total,
+                lojaEmail: "andrejotasilva@gmail.com",  // E-mail da loja
+                lojaTelefone: "+55 11 91535-2283"  // Telefone da loja
+            };
+
+            // Enviar pedido para o backend usando fetch
+            fetch('/enviar-pedido', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pedidoData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Erro ao enviar pedido:', error);
+                alert('Ocorreu um erro ao enviar o pedido.');
+            });
+        });
+    </script>
+</body>
+</html>
