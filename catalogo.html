@@ -1,0 +1,3080 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Religiosos - Terreiro Escola de Umbanda Caboclo das 7 Espadas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        /* Melhorias para o seletor de categoria mobile */
+        .mobile-category-selector {
+            display: none;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: var(--card-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-category-selector select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--secondary-color);
+            font-size: 16px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+        }
+        
+        .mobile-category-selector select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        /* Ajuste para o menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100%;
+            background-color: var(--primary-color);
+            z-index: 999;
+            padding: 80px 20px 20px;
+            transition: right 0.3s ease-in-out;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 12px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+        
+        .mobile-nav-links a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        :root {
+            --primary-color: #000;
+            --secondary-color: #333;
+            --accent-color: #cc9900;
+            --text-color: #eee;
+            --bg-color: #121212;
+            --card-color: #1e1e1e;
+            --menu-toggle-color: #fff;
+            --menu-toggle-bg: #000;
+            --product-text-color: #eee;
+        }
+        
+        .light-theme {
+            --primary-color: #222;
+            --secondary-color: #444;
+            --accent-color: #ffcc00;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --card-color: #fff;
+            --menu-toggle-color: #000;
+            --menu-toggle-bg: #fff;
+            --product-text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        /* Animação NOSSA LOJA */
+        .sine-wave-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            white-space: nowrap;
+            background-color: var(--primary-color);
+            margin: 20px 0;
+        }
+
+        .sine-wave-container {
+            display: flex;
+            animation: sineWave 15s linear infinite;
+        }
+
+        .sine-wave-text {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 30px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        @keyframes sineWave {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* Estilo do Logo */
+        .logo img {
+            height: 180px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 .loja-name {
+            font-size: 20px;
+            display: none;
+        }
+        
+        .logo h1 .loja-subtitle {
+            font-size: 18px;
+        }
+
+        /* Ajuste para celulares */
+        @media (max-width: 768px) {
+            .sine-wave-text {
+                font-size: 1.5rem;
+                margin-right: 20px;
+            }
+            .sine-wave-container {
+                animation: sineWave 12s linear infinite;
+            }
+            
+            .logo img {
+                height: 200px;
+            }
+            
+            .logo h1 .loja-subtitle {
+                font-size: 16px;
+                margin-top: 5px;
+                text-align: center;
+            }
+            
+            .logo {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Restante do CSS permanece igual */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            order: 1;
+            flex: 1;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1000;
+            background-color: var(--menu-toggle-bg);
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--menu-toggle-color);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--primary-color);
+            z-index: 999;
+            padding: 80px 20px 20px;
+            transition: right 0.3s;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .mobile-nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            order: 2;
+            flex: 2;
+            justify-content: flex-end;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Ajustes para a barra de busca e botões */
+        .user-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            order: 3;
+            width: 100%;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 0; /* Removemos a margem inferior */
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .search-bar {
+            flex: 1;
+            min-width: 200px; /* Largura mínima reduzida */
+            max-width: 400px; /* Largura máxima definida */
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 8px 15px;
+        }
+        
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        .search-bar i {
+            color: #555;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+        
+        .search-bar i:hover {
+            color: #000;
+        }
+        
+        /* Reduzir o tamanho dos botões */
+        .login-button, .delete-data-button {
+            padding: 8px 12px; /* Reduzido de 10px 15px */
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;   /* Reduzido de 14px */
+            transition: all 0.3s;
+        }
+        
+        .login-button {
+            background-color: #4267B2;
+            color: white;
+        }
+        
+        .login-button:hover {
+            background-color: #3b5998;
+            transform: translateY(-2px);
+        }
+        
+        .delete-data-button {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .delete-data-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .categories-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--secondary-color);
+            padding: 10px 0;
+            position: relative;
+        }
+        
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 10px;
+            padding: 0 40px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-link {
+            white-space: nowrap;
+            padding: 8px 15px;
+            background-color: #555;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .category-link:hover {
+            background-color: #777;
+            transform: translateY(-2px);
+        }
+
+        .category-link.current-page {
+            background-color: var(--accent-color);
+            color: #000;
+            cursor: default;
+            pointer-events: none;
+        }
+        
+        .scroll-button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+        
+        .scroll-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .scroll-button.left {
+            left: 5px;
+        }
+        
+        .scroll-button.right {
+            right: 5px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .product-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: var(--card-color);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .gallery-thumbnails img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .gallery-thumbnails img:hover {
+            border-color: #4267B2;
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .product-path {
+            color: var(--product-text-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .product-info h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: var(--product-text-color);
+        }
+        
+        .product-code {
+            color: var(--product-text-color);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--product-text-color);
+            margin: 15px 0;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .rating i {
+            color: #FFD700;
+        }
+        
+        .rating span {
+            font-size: 14px;
+            color: var(--product-text-color);
+            margin-left: 10px;
+        }
+        
+        .product-description {
+            margin: 20px 0;
+            color: var(--product-text-color);
+        }
+        
+        .product-description h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--product-text-color);
+        }
+        
+        .product-description ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .product-description li {
+            margin-bottom: 8px;
+            color: var(--product-text-color);
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .view-catalog, .whatsapp-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .view-catalog {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .view-catalog.current-page {
+            background-color: #666;
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .view-catalog:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .delivery {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--product-text-color);
+            font-size: 14px;
+        }
+        
+        .product-specs {
+            margin: 40px 0;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .tabs li {
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: #ccc;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .tabs li:hover {
+            color: var(--accent-color);
+        }
+        
+        .tabs li.active {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+        
+        .specs-content {
+            border: 1px solid var(--secondary-color);
+            border-radius: 0 5px 5px 5px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 25px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .specs-content > div {
+            display: none;
+        }
+        
+        .specs-content > div.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .specs-content h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #fff;
+        }
+        
+        .specs-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .specs-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .specs-content li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-simple p {
+            margin: 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+        
+        .theme-toggle {
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 998;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Estilos para o seletor de categoria mobile */
+        .mobile-category-selector {
+            display: none;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-category-selector select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: var(--card-color);
+            color: var(--product-text-color);
+            border: 1px solid var(--secondary-color);
+        }
+        
+        /* Esconder todas as seções de produtos inicialmente no mobile */
+        @media (max-width: 768px) {
+            .product-section {
+                display: none;
+            }
+            
+            .product-section.active {
+                display: block;
+            }
+            
+            .mobile-category-selector {
+                display: block;
+            }
+            
+            .categories-container {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                order: 2;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            /* Ajustes para mobile */
+            .user-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .button-group {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .search-bar {
+                min-width: 100%;
+                max-width: 100%;
+            }
+            
+            /* Botões ainda menores em mobile */
+            .login-button, .delete-data-button {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .main-image {
+                height: 350px;
+            }
+            
+            .tabs {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .tabs li {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .login-button, .delete-data-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">    
+    </div>
+
+    <script>
+        // Mostra banner apenas se não tiver sido ignorado
+        if (!localStorage.getItem('manutencaoBannerIgnorado') || 
+            (localStorage.getItem('manutencaoBannerIgnoradoAte') && 
+             Date.now() > parseInt(localStorage.getItem('manutencaoBannerIgnoradoAte')))) {
+            document.querySelector('.site-notice').style.display = 'block';
+        }
+    </script>
+
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Terreiro Caboclo 7 Espadas">
+                <h1>
+                    <span class="loja-name">Terreiro Caboclo 7 Espadas</span>
+                    <span class="loja-subtitle">TERREIRO ESCOLA DE UMBANDA<br>CABOCLO DAS 7 ESPADAS</span>
+                </h1>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-links">
+                <a href="https://terreiro-escola-umbanda.systeme.io/caboclo7espadas">Início</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/cursos-terreiro">Cursos</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao">Notícias</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao">Páginas</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/endereco-terreiro">Endereço</a>
+                <a href="https://templo-quimbandacasadetiriri.systeme.io/bem-vindos">Quimbanda</a>
+                <a href="https://wa.me/5511982551647">Contato</a>
+            </nav>
+            
+            <!-- Menu Mobile -->
+            <div class="mobile-menu">
+                <nav class="mobile-nav-links">
+                    <a href="https://terreiro-escola-umbanda.systeme.io/caboclo7espadas"><i class="fas fa-home"></i> Início</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/cursos-terreiro"><i class="fas fa-graduation-cap"></i> Cursos</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao"><i class="fas fa-newspaper"></i> Notícias</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao"><i class="fas fa-file-alt"></i> Páginas</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/endereco-terreiro"><i class="fas fa-map-marker-alt"></i> Endereço</a>
+                    <a href="https://templo-quimbandacasadetiriri.systeme.io/bem-vindos"><i class="fas fa-star"></i> Quimbanda</a>
+                    <a href="https://wa.me/5511982551647"><i class="fas fa-phone-alt"></i> Contato</a>
+                </nav>
+            </div>
+            
+            <div class="overlay"></div>
+            
+            <div class="user-actions">
+                <div class="button-group">
+                    <a href="cadastro.html" class="login-button">
+                        <i class="fas fa-user"></i> Login / Cadastro
+                    </a>
+                    <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/exclusao-dados.html" class="delete-data-button">
+                        <i class="fas fa-trash-alt"></i> Solicitar Exclusão
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Buscar produto">
+                    <i class="fas fa-search" onclick="searchProducts()"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="categories-container">
+            <button class="scroll-button left" onclick="scrollCategories(-100)">&#10094;</button>
+            <div class="categories">
+                <a href="alguidares.html" class="category-link" id="alguidares-link">Alguidares</a>
+                <a href="velas-palitos-coloridas.html" class="category-link" id="velas-palitos-link">Velas Palitos Coloridas</a>
+                <a href="quartinhas.html" class="category-link" id="quartinhas-link">Quartinhas Barro e Cerâmica</a>
+                <a href="velas-7-dias.html" class="category-link" id="velas-7-dias-link">Velas 7 Dias Coloridas</a>
+                <a href="tinturas-magias.html" class="category-link" id="tinturas-magias-link">Tinturas para Magias</a>
+                <a href="banhos-de-ervas.html" class="category-link" id="banhos-de-ervas-link">Banhos de Ervas</a>
+                <a href="tridentes.html" class="category-link" id="tridentes-link">Tridentes Temporal e Atemporal</a>
+                <a href="baralhos-diversos.html" class="category-link" id="baralhos-diversos-link">Baralhos Diversos</a>
+                <a href="pedras-naturais.html" class="category-link" id="pedras-naturais-link">Pedras Naturais</a>
+                <a href="pos-e-oleos.html" class="category-link" id="pos-e-oleos-link">Pós e Óleos</a>
+                <a href="pregos.html" class="category-link" id="pregos-link">Pregos</a>
+                <a href="parafusos.html" class="category-link" id="parafusos-link">Parafusos</a>
+                <a href="toalhas-esotericas.html" class="category-link" id="toalhas-esotericas-link">Toalhas Esotéricas</a>
+                <a href="velas-para-magias.html" class="category-link" id="velas-para-magias-link">Velas Temáticas</a>
+                <a href="pulseiras.html" class="category-link" id="pulseiras-link">Pulseiras</a>
+                <a href="charutos.html" class="category-link" id="charutos-link">Charutos</a>
+                <a href="fio-de-contas.html" class="category-link" id="fio-de-contas-link">Fio de Contas</a>
+                <a href="outros-produtos.html" class="category-link" id="outros-produtos-link">Outros Produtos</a>
+            </div>
+            <button class="scroll-button right" onclick="scrollCategories(100)">&#10095;</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Animação NOSSA LOJA -->
+        <div class="sine-wave-wrapper">
+            <div class="sine-wave-container" id="animated-text-container">
+                <!-- O conteúdo será preenchido pelo JavaScript -->
+            </div>
+        </div>
+
+        <!-- Seletor de categoria para mobile - Versão melhorada -->
+        <div class="mobile-category-selector">
+            <select id="category-selector" onchange="showSelectedCategory()">                
+                <option value="alguidares">Alguidares</option>
+                <option value="velas-palitos">Velas Palitos Coloridas</option>
+                <option value="quartinhas">Quartinhas Barro e Cerâmica</option>
+                <option value="velas-7-dias">Velas 7 Dias Coloridas</option>
+                <option value="tinturas-magias">Tinturas para Magias</option>
+                <option value="banhos-de-ervas">Banhos de Ervas</option>
+                <option value="tridentes">Tridentes Temporal e Atemporal</option>
+                <option value="baralhos-diversos">Baralhos Diversos</option>
+                <option value="pedras-naturais">Pedras Naturais</option>
+                <option value="pos-e-oleos">Pós e Óleos</option>
+                <option value="pregos">Pregos</option>
+                <option value="parafusos">Parafusos</option>
+                <option value="toalhas-esotericas">Toalhas Esotéricas</option>
+                <option value="velas-para-magias">Velas Temáticas</option>
+                <option value="pulseiras">Pulseiras</option>
+                <option value="charutos">Charutos</option>
+                <option value="fio-de-contas">Fio de Contas</option>
+                <option value="outros-produtos">Outros Produtos</option>
+            </select>
+        </div>
+
+        <!-- Alguidares - Corrigido -->
+        <div class="product-section" id="alguidares-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/alguidares/alguidar.png" alt="Alguidar de barro para rituais" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/alguidares/alguidar-vista-superior.png" alt="Alguidares - Vista superior" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/alguidares/alguidar-detalhe.png" alt="Alguidares - Detalhe do acabamento" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/alguidares/alguidar-tamanhos.png" alt="Alguidares - Tamanhos diferentes" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Utensílios / Alguidares
+                    </p>
+                    <h1>Alguidar de Barro para Rituais</h1>
+                    <p class="product-code">Código: ALG-0000</p>
+                    <p class="price">R$ 08,90 - R$ 44,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>45 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Símbolo de equilíbrio e ancestralidade, o alguidar de barro é essencial para rituais, oferendas e práticas espirituais. Sua composição natural mantém a pureza dos elementos, potencializando energias em cultos da Umbanda, Candomblé e esoterismo.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Barro cru, ideal para absorção e condução energética</li>
+                            <li><strong>Usos:</strong> Oferendas, banhos, defumação e preparação ritualística</li>
+                            <li><strong>Tamanhos variados:</strong> Perfeito para diferentes necessidades espirituais</li>
+                            <li><strong>Conexão espiritual:</strong> Amplamente utilizado na Umbanda, Candomblé e tradições esotéricas</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> O barro é um material poroso que potencializa a energia dos elementos colocados nele, tornando-o ideal para rituais que envolvem equilíbrio e fortalecimento energético.</p>
+                        
+                        <p class="product-call">🔮 <strong>Fortaleça suas práticas com um alguidar autêntico e carregado de tradição!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/alguidares.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                  
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details1')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns1')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping1')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details1" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>As medidas podem variar de acordo com o fabricante e a forma artesanal de produção. Para maior precisão, recomenda-se conferir as dimensões reais ao adquirir um alguidar.</p>
+                        <p><strong>SKU:</strong> ALG-0000</p>
+                        <p><strong>Material:</strong> Barro natural</p>
+                        <p><strong>Uso:</strong> Oferendas, padês e rituais religiosos</p>
+                        <p><strong>Características:</strong> Produto artesanal, podendo apresentar variações no tamanho e formato</p>
+                    </div>
+                    
+                    <div id="returns1">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping1">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Velas Palitos Coloridas - Corrigido -->
+        <div class="product-section" id="velas-palitos-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/velas-palitos/velas-palito.png" alt="Vela Palito Colorida" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/velas-palitos/velas-palito-detalhe1.png" alt="Vela Palito - Vista frontal" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/velas-palitos/velas-palito-detalhe2.png" alt="Vela Palito - Detalhe da chama" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/velas-palitos/velas-palito-embalagem.png" alt="Vela Palito - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas Palito
+                    </p>
+                    <h1>Vela Palito Colorida</h1>
+                    <p class="product-code">Código: VLP-0001</p>
+                    <p class="price">R$ 1,50 - R$ 50,00</p>
+                    <p class="price">(Também disponível por quilo - consulte valores)</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>32 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela palito colorida, essencial para rituais religiosos, trabalhos espirituais e iluminação de ambientes sagrados. Produzida com cera de qualidade que garante queima limpa e duradoura. Disponíveis em diversas cores para diferentes finalidades ritualísticas.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Cera de parafina de alta qualidade</li>
+                            <li><strong>Cores disponíveis:</strong> Branca, preta, vermelha, azul, verde, amarela, roxa, rosa</li>
+                            <li><strong>Tamanhos:</strong> 1Kg (aproximadamente 30cm) ou vendemos por quilo</li>
+                            <li><strong>Tempo de queima:</strong> Até 40 horas contínuas</li>
+                            <li><strong>Indicação:</strong> Cada cor possui uma vibração específica para diferentes trabalhos</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Para melhor desempenho, mantenha a vela longe de correntes de ar e em superfície plana e estável.</p>
+                        
+                        <p class="product-call">🕯️ <strong>Ilumine seu caminho espiritual com nossas velas coloridas de qualidade!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/velas-palitos-coloridas.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details2')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns2')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping2')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details2" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Vela palito colorida de alta qualidade, ideal para uso em rituais religiosos e trabalhos espirituais.</p>
+                        <p><strong>SKU:</strong> VLP-0001</p>
+                        <p><strong>Material:</strong> Cera de parafina colorida</p>
+                        <p><strong>Uso:</strong> Rituais, oferendas, iluminação espiritual</p>
+                        <p><strong>Características:</strong> Queima limpa, sem respingos, com pavio de algodão</p>
+                        <p><strong>Opções de compra:</strong> Unidade ou por quilo (consulte valores)</p>
+                    </div>
+                    
+                    <div id="returns2">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping2">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quartinhas - Corrigido -->
+        <div class="product-section" id="quartinhas-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/quartinhas/quartinhas.png" alt="Quartinhas" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/quartinhas/quartinhas-vista-frontal.png" alt="Quartinhas - Vista frontal" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/quartinhas/quartinhas-detalhe.png" alt="Quartinhas - Detalhe do acabamento" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/quartinhas/quartinhas-tamanhos.png" alt="Quartinhas - Tamanhos diferentes" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Utensílios / Quartinhas
+                    </p>
+                    <h1>Quartinhas de Barro e Cerâmica</h1>
+                    <p class="product-code">Código: QRT-0002</p>
+                    <p class="price">R$ 19,90 - R$ 79,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>28 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Quartinhas ritualísticas essenciais para trabalhos espirituais na Umbanda e Candomblé. Disponíveis em versões masculinas (lisas) e femininas (com asas), feitas em barro ou porcelana, em diversos tamanhos e cores para atender diferentes necessidades ritualísticas.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Barro natural ou porcelana de alta qualidade</li>
+                            <li><strong>Usos:</strong> Rituais para orixás, entidades e trabalhos espirituais diversos</li>
+                            <li><strong>Tamanhos:</strong> Variam de 12cm até 30cm de altura</li>
+                            <li><strong>Resistência:</strong> A quartinha tem alta resistência e durabilidade</li>
+                            <li><strong>Tipos:</strong> Masculinas (lisas) e femininas (com asas)</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Antes do primeiro uso, lave com água e deixe secar naturalmente para melhor conservação.</p>
+                        
+                        <p class="product-call">🕯️ <strong>Potencialize seus rituais com nossas quartinhas de qualidade!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/quartinhas.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details3')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns3')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping3')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details3" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Quartinhas ritualísticas essenciais para trabalhos espirituais na Umbanda e Candomblé.</p>
+                        <p><strong>SKU:</strong> QRT-0002</p>
+                        <p><strong>Material:</strong> Barro natural ou porcelana</p>
+                        <p><strong>Uso:</strong> Rituais para orixás e entidades</p>
+                        <p><strong>Características:</strong> Produto artesanal, pode apresentar variações no tamanho</p>
+                    </div>
+                    
+                    <div id="returns3">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping3">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Velas 7 Dias - Corrigido -->
+        <div class="product-section" id="velas-7-dias-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/velas7dias/velas-7-dias-detalhe.png" alt="Vela 7 Dias Colorida para trabalhos espirituais" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/velas7dias/velas-7-dias.png" alt="Vela 7 Dias - Vista frontal" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/velas7dias/velas-7-dias02.png" alt="Vela 7 Dias - Detalhe da embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/velas7dias/velas-7-dias03.png" alt="Vela 7 Dias - Acesa" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Colorida para Trabalhos Espirituais</h1>
+                    <p class="product-code">Código: V7D-0003</p>
+                    <p class="price">R$ 12,00 - R$ 25,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>56 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias colorida de alta qualidade, essencial para trabalhos espirituais prolongados, proteção e limpeza energética. Queima contínua por até 7 dias, mantendo a vibração positiva no ambiente. Cada cor possui uma finalidade específica nos trabalhos espirituais.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Cera de parafina com pavio reforçado</li>
+                            <li><strong>Duração:</strong> Até 7 dias de queima contínua</li>
+                            <li><strong>Cores disponíveis:</strong> Branca, preta, vermelha, azul, verde, rosa, roxa, amarela</li>
+                            <li><strong>Indicação:</strong> Trabalhos de proteção, abertura de caminhos, limpeza espiritual</li>
+                            <li><strong>Significado das cores:</strong> Cada cor atrai energias específicas para diferentes fins</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Coloque a vela em local seguro, longe de materiais inflamáveis e correntes de ar.</p>
+                        
+                        <p class="product-call">✨ <strong>Fortaleça seus trabalhos com nossa vela de 7 dias colorida!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/velas-7-dias.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details4')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns4')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping4')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details4" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Vela 7 dias colorida produzida com materiais de alta qualidade para queima contínua e segura.</p>
+                        <p><strong>SKU:</strong> V7D-0003</p>
+                        <p><strong>Material:</strong> Cera de parafina colorida</p>
+                        <p><strong>Uso:</strong> Trabalhos espirituais prolongados</p>
+                        <p><strong>Características:</strong> Queima limpa, sem respingos, com pavio reforçado</p>
+                    </div>
+                    
+                    <div id="returns4">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping4">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tinturas Magias - Corrigido -->
+        <div class="product-section" id="tinturas-magias-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/tinturas/tinturas.png" alt="Tinturas para trabalhos mágicos" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/tinturas/tinturas00.png" alt="Tinturas - Frascos diversos" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/tinturas/tinturas01.png" alt="Tinturas - Detalhe do líquido" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/tinturas/tinturas02.png" alt="Tinturas - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Magias / Tinturas
+                    </p>
+                    <h1>Tinturas para Trabalhos Mágicos</h1>
+                    <p class="product-code">Código: TIN-0004</p>
+                    <p class="price">R$ 10,90 - R$ 75,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>39 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Tinturas mágicas preparadas com ervas sagradas e elementos naturais, potencializadas para diversos fins espirituais como proteção, abertura de caminhos, amor e prosperidade. Cada fórmula é cuidadosamente elaborada para atender a necessidades energéticas específicas.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Composição:</strong> Ervas selecionadas, álcool de cereais e essências naturais</li>
+                            <li><strong>Tipos:</strong> Proteção, amor, prosperidade, abertura de caminhos, limpeza espiritual</li>
+                            <li><strong>Uso:</strong> Banhos, defumações, preparação de amuletos, unções</li>
+                            <li><strong>Modo de usar:</strong> Diluir em água ou aplicar diretamente conforme orientação</li>
+                            <li><strong>Armazenamento:</strong> Manter em local fresco e ao abrigo da luz solar</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Armazene em local fresco e ao abrigo da luz solar direta para manter as propriedades.</p>
+                        
+                        <p class="product-call">🌿 <strong>Potencialize seus trabalhos com nossas tinturas mágicas artesanais!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/tinturas-magias.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details5')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns5')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping5')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details5" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Tinturas mágicas preparadas artesanalmente com ervas selecionadas e elementos naturais.</p>
+                        <p><strong>SKU:</strong> TIN-0004</p>
+                        <p><strong>Conteúdo:</strong> 30ml a 100ml por frasco</p>
+                        <p><strong>Uso:</strong> Banhos, defumações, preparação de amuletos</p>
+                        <p><strong>Características:</strong> Produto artesanal, pode apresentar variações na coloração</p>
+                    </div>
+                    
+                    <div id="returns5">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping5">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banhos de Ervas - Corrigido -->
+        <div class="product-section" id="banhos-de-ervas-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/banhos/banhos-de-ervas00.png" alt="Banhos de Ervas para limpeza espiritual" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/banhos/banhos-de-ervas.png" alt="Banhos de Ervas - Vista frontal" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/banhos/banhos-de-ervas01.png" alt="Banhos de Ervas - Detalhe das ervas" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/banhos/banhos-de-ervas02.png" alt="Banhos de Ervas - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Ervas / Banhos
+                    </p>
+                    <h1>Banhos de Ervas para Limpeza Espiritual</h1>
+                    <p class="product-code">Código: BAN-0005</p>
+                    <p class="price">R$ 5,90 - R$ 35,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>47 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Misturas de ervas sagradas selecionadas para banhos de limpeza e descarrego espiritual. Cada combinação é preparada com plantas específicas para diferentes finalidades energéticas, como proteção, abertura de caminhos, amor e prosperidade.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Composição:</strong> Ervas naturais secas e selecionadas</li>
+                            <li><strong>Tipos:</strong> Descarga, proteção, prosperidade, amor, abertura de caminhos</li>
+                            <li><strong>Modo de usar:</strong> Ferver as ervas, coar e usar a água no banho</li>
+                            <li><strong>Indicação:</strong> Limpeza energética, remoção de energias negativas</li>
+                            <li><strong>Preparação:</strong> Misturas prontas para uso, apenas ferver e aplicar</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Para melhores resultados, tome o banho da cabeça aos pés, sem enxaguar, deixando secar naturalmente.</p>
+                        
+                        <p class="product-call">🛁 <strong>Renove suas energias com nossos banhos de ervas especiais!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/banhos-de-ervas.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details6')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns6')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping6')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details6" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Misturas de ervas sagradas selecionadas para banhos de limpeza e descarrego espiritual.</p>
+                        <p><strong>SKU:</strong> BAN-0005</p>
+                        <p><strong>Conteúdo:</strong> 100g a 500g por embalagem</p>
+                        <p><strong>Uso:</strong> Banhos de limpeza espiritual</p>
+                        <p><strong>Características:</strong> Produto natural, pode apresentar variações nas folhas</p>
+                    </div>
+                    
+                    <div id="returns6">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping6">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tridentes - Corrigido -->
+        <div class="product-section" id="tridentes-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/tridentes/tridentes.png" alt="Tridente ritualístico em metal" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/tridentes/tridentes-detalhe1.png" alt="Tridente - Vista frontal" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/tridentes/tridentes-detalhe2.png" alt="Tridente - Detalhe do acabamento" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/tridentes/tridentes-embalagem.png" alt="Tridente - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Instrumentos / Tridentes
+                    </p>
+                    <h1>Tridente Temporal e Atemporal</h1>
+                    <p class="product-code">Código: TRI-0006</p>
+                    <p class="price">R$ 9,90 - R$ 25,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>23 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Tridente ritualístico em metal, símbolo de poder e proteção espiritual. Utilizado em rituais de magia, proteção e trabalhos espirituais diversos. Instrumento sagrado para altares e cerimônias, disponível em modelos temporal e atemporal para diferentes finalidades.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Metal resistente com acabamento ritualístico</li>
+                            <li><strong>Tamanhos:</strong> Pequeno (15cm), médio (25cm), grande (35cm)</li>
+                            <li><strong>Tipos:</strong> Temporal (para trabalhos imediatos) e Atemporal (para trabalhos duradouros)</li>
+                            <li><strong>Usos:</strong> Rituais de proteção, demarcação de espaços sagrados, trabalhos de magia</li>
+                            <li><strong>Indicação:</strong> Umbanda, Quimbanda, magias diversas</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Consagre seu tridente com defumação e orações antes do primeiro uso para ativar seu poder.</p>
+                        
+                        <p class="product-call">🔱 <strong>Fortaleça seus rituais com nosso tridente de poder!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/tridentes.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details7')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns7')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping7')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details7" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Tridente ritualístico em metal, símbolo de poder e proteção espiritual.</p>
+                        <p><strong>SKU:</strong> TRI-0006</p>
+                        <p><strong>Material:</strong> Metal resistente</p>
+                        <p><strong>Uso:</strong> Rituais de proteção e magia</p>
+                        <p><strong>Características:</strong> Acabamento ritualístico, pontas afiadas</p>
+                    </div>
+                    
+                    <div id="returns7">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping7">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Baralhos Diversos - Corrigido -->
+        <div class="product-section" id="baralhos-diversos-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/baralhos/baralhos.png" alt="Baralhos para jogos divinatórios" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/baralhos/baralhos00.png" alt="Baralhos - Vista frontal" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/baralhos/baralhos01.png" alt="Baralhos - Detalhe das cartas" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/baralhos/baralhos02.png" alt="Baralhos - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Divinação / Baralhos
+                    </p>
+                    <h1>Baralhos Diversos para Jogos Divinatórios</h1>
+                    <p class="product-code">Código: BAR-0007</p>
+                    <p class="price">R$ 15,00 - R$ 80,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>34 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Baralhos especiais para jogos divinatórios e consultas espirituais. Diversos modelos disponíveis, incluindo baralho cigano, tarô e oráculos diversos, cada um com suas particularidades e simbologias. Ferramentas essenciais para quem busca autoconhecimento e orientação espiritual.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Tipos:</strong> Baralho Cigano, Tarô de Marselha, Tarô Egípcio, Oráculos diversos</li>
+                            <li><strong>Material:</strong> Cartas em papel de alta qualidade com acabamento resistente</li>
+                            <li><strong>Incluso:</strong> Manual básico de interpretação em português</li>
+                            <li><strong>Indicação:</strong> Consultas espirituais, autoconhecimento, orientação</li>
+                            <li><strong>Precisão:</strong> Cada baralho possui simbologias específicas para leituras precisas</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Consagre seu baralho com defumação e orações antes do primeiro uso para melhor conexão energética.</p>
+                        
+                        <p class="product-call">🔮 <strong>Desvende os mistérios do destino com nossos baralhos especiais!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/baralhos-diversos.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                   
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details8')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns8')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping8')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details8" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Baralhos especiais para jogos divinatórios e consultas espirituais.</p>
+                        <p><strong>SKU:</strong> BAR-0007</p>
+                        <p><strong>Material:</strong> Cartas em papel de alta qualidade</p>
+                        <p><strong>Conteúdo:</strong> 78 cartas (tarô) ou 36 cartas (baralho cigano)</p>
+                        <p><strong>Características:</strong> Manual básico de interpretação incluso</p>
+                    </div>
+                    
+                    <div id="returns8">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping8">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pedras Naturais - Corrigido -->
+        <div class="product-section" id="pedras-naturais-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/pedras/pedras-naturais.png" alt="Pedras naturais para energização" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/pedras/pedras-naturais00.png" alt="Pedras - Variedade de cores" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/pedras/pedras-naturais01.png" alt="Pedras - Detalhe do brilho" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/pedras/pedras-naturais02.png" alt="Pedras - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Cristais / Pedras Naturais
+                    </p>
+                    <h1>Pedras Naturais para Energização</h1>
+                    <p class="product-code">Código: PED-0008</p>
+                    <p class="price">R$ 03,90 - R$ 278,30</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>62 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Seleção de pedras e cristais naturais para energização, proteção e equilíbrio espiritual. Cada pedra possui propriedades específicas que auxiliam em diferentes aspectos da vida e do desenvolvimento espiritual. Minerais autênticos, selecionados por sua pureza e potencial energético.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Tipos:</strong> Quartzo branco, rosa, fumê; Ametista; Citrino; Ônix; Turmalina; entre outras</li>
+                            <li><strong>Propriedades:</strong> Proteção, amor, prosperidade, limpeza energética, equilíbrio emocional</li>
+                            <li><strong>Formas:</strong> Bruto, polido, pontas, esferas, pingentes</li>
+                            <li><strong>Origem:</strong> Pedras 100% naturais, selecionadas por sua qualidade</li>
+                            <li><strong>Indicação:</strong> Meditação, energização de ambientes, amuletos de proteção</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Limpe suas pedras periodicamente com água corrente ou sal grosso para manter suas propriedades energéticas.</p>
+                        
+                        <p class="product-call">💎 <strong>Equilibre suas energias com nossas pedras naturais selecionadas!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/pedras-naturais.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details9')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns9')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping9')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details9" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Seleção de pedras e cristais naturais para energização, proteção e equilíbrio espiritual.</p>
+                        <p><strong>SKU:</strong> PED-0008</p>
+                        <p><strong>Material:</strong> Pedras naturais 100% autênticas</p>
+                        <p><strong>Tamanhos:</strong> Variam de acordo com a pedra</p>
+                        <p><strong>Características:</strong> Cada pedra é única, podendo apresentar variações de cor e forma</p>
+                    </div>
+                    
+                    <div id="returns9">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping9">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pós e Óleos - Corrigido -->
+        <div class="product-section" id="pos-e-oleos-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/oleos/oleos-pos.png" alt="Pós e óleos para trabalhos espirituais" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/oleos/oleos-pos-variedade.png" alt="Pós e Óleos - Variedade" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/oleos/oleos-pos-detalhe.png" alt="Pós e Óleos - Detalhe dos frascos" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/oleos/oleos-pos-embalagem.png" alt="Pós e Óleos - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Magias / Pós e Óleos
+                    </p>
+                    <h1>Pós e Óleos para Trabalhos Espirituais</h1>
+                    <p class="product-code">Código: PEO-0009</p>
+                    <p class="price">R$ 30,00 - R$ 80,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>41 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Pós e óleos essenciais preparados com ervas selecionadas para diversos fins espirituais. Cada produto possui uma finalidade específica, desde proteção até atração de amor e prosperidade. Formulações tradicionais que potencializam seus trabalhos espirituais.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Tipos:</strong> Proteção, amor, prosperidade, abertura de caminhos, limpeza espiritual</li>
+                            <li><strong>Composição:</strong> Ervas, essências e elementos naturais de alta qualidade</li>
+                            <li><strong>Uso:</strong> Banhos, defumações, preparação de amuletos, unções ritualísticas</li>
+                            <li><strong>Modo de usar:</strong> Aplicação conforme orientação específica de cada produto</li>
+                            <li><strong>Origem:</strong> Preparados artesanalmente com ingredientes selecionados</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Armazene em local fresco e ao abrigo da luz solar direta para manter as propriedades.</p>
+                        
+                        <p class="product-call">✨ <strong>Potencialize seus trabalhos com nossos pós e óleos especiais!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/pos-e-oleos.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details10')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns10')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping10')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details10" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Pós e óleos essenciais preparados com ervas selecionadas para diversos fins espirituais.</p>
+                        <p><strong>SKU:</strong> PEO-0009</p>
+                        <p><strong>Conteúdo:</strong> 10ml a 30ml (óleos), 20g a 50g (pós)</p>
+                        <p><strong>Uso:</strong> Banhos, defumações, preparação de amuletos</p>
+                        <p><strong>Características:</strong> Produto artesanal, pode apresentar variações na coloração</p>
+                    </div>
+                    
+                    <div id="returns10">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping10">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregos - Seção Completa -->
+        <div class="product-section" id="pregos-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/pregos/prego.png" alt="Pregos ritualísticos para trabalhos espirituais" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/pregos/prego00.png" alt="Pregos - Variedade de tamanhos" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/pregos/prego01.png" alt="Pregos - Detalhe do acabamento" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/pregos/prego02.png" alt="Pregos - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Ferramentas / Pregos
+                    </p>
+                    <h1>Pregos Ritualísticos para Trabalhos Espirituais</h1>
+                    <p class="product-code">Código: PRE-0010</p>
+                    <p class="price">R$ 5,00 - R$ 35,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span>19 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Pregos ritualísticos utilizados em trabalhos de magia e proteção espiritual. Disponíveis em diversos tamanhos para diferentes finalidades, especialmente em trabalhos de "fechamento" e proteção.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Ferro ou aço</li>
+                            <li><strong>Tamanhos:</strong> 5cm, 10cm, 15cm</li>
+                            <li><strong>Usos:</strong> Trabalhos de proteção, fixação de energias, magias diversas</li>
+                            <li><strong>Indicação:</strong> Umbanda, Quimbanda, magias diversas</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Consagre seus pregos com defumação e orações antes do uso em trabalhos espirituais.</p>
+                        
+                        <p class="product-call">🔨 <strong>Realize trabalhos precisos com nossos pregos ritualísticos!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/pregos.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details11')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns11')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping11')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details11" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Pregos ritualísticos utilizados em trabalhos de magia e proteção espiritual.</p>
+                        <p><strong>SKU:</strong> PRE-0010</p>
+                        <p><strong>Material:</strong> Ferro ou aço</p>
+                        <p><strong>Tamanhos:</strong> 5cm, 10cm, 15cm</p>
+                        <p><strong>Características:</strong> Acabamento rústico, ideal para trabalhos espirituais</p>
+                    </div>
+                    
+                    <div id="returns11">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping11">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parafusos - Seção Completa -->
+        <div class="product-section" id="parafusos-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/parafusos/parafuso.png" alt="Parafusos ritualísticos para trabalhos espirituais" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/parafusos/parafuso01.png" alt="Parafusos - Variedade de tamanhos" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/parafusos/parafuso02.png" alt="Parafusos - Detalhe do acabamento" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/parafusos/parafuso03.png" alt="Parafusos - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Ferramentas / Parafusos
+                    </p>
+                    <h1>Parafusos Ritualísticos para Trabalhos Espirituais</h1>
+                    <p class="product-code">Código: PAR-0011</p>
+                    <p class="price">R$ 6,00 - R$ 18,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span>17 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Parafusos ritualísticos utilizados em trabalhos de magia e proteção espiritual. Disponíveis em diversos tamanhos para diferentes finalidades, especialmente em trabalhos de "amarração" de energias.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Ferro ou aço</li>
+                            <li><strong>Tamanhos:</strong> 5cm, 10cm, 15cm</li>
+                            <li><strong>Usos:</strong> Trabalhos de proteção, fixação de energias, magias diversas</li>
+                            <li><strong>Indicação:</strong> Umbanda, Quimbanda, magias diversas</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Consagre seus parafusos com defumação e orações antes do uso em trabalhos espirituais.</p>
+                        
+                        <p class="product-call">🔩 <strong>Realize trabalhos precisos com nossos parafusos ritualísticos!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/parafusos.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details12')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns12')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping12')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details12" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Parafusos ritualísticos utilizados em trabalhos de magia e proteção espiritual.</p>
+                        <p><strong>SKU:</strong> PAR-0011</p>
+                        <p><strong>Material:</strong> Ferro ou aço</p>
+                        <p><strong>Tamanhos:</strong> 5cm, 10cm, 15cm</p>
+                        <p><strong>Características:</strong> Acabamento rústico, ideal para trabalhos espirituais</p>
+                    </div>
+                    
+                    <div id="returns12">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping12">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toalhas Esotéricas - Seção Completa -->
+        <div class="product-section" id="toalhas-esotericas-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/toalhas/toalhas-esotericas.png" alt="Toalhas esotéricas para rituais" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/toalhas/toalhas-esotericas-variedade.png" alt="Toalhas - Variedade de cores" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/toalhas/toalhas-esotericas-detalhe.png" alt="Toalhas - Detalhe dos símbolos" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/toalhas/toalhas-esotericas-embalagem.png" alt="Toalhas - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Utensílios / Toalhas
+                    </p>
+                    <h1>Toalhas Esotéricas para Rituais</h1>
+                    <p class="product-code">Código: TOA-0012</p>
+                    <p class="price">R$ 25,00 - R$ 60,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>28 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Toalhas esotéricas com símbolos sagrados para uso em altares, rituais e trabalhos espirituais. Tecido de alta qualidade com estampas de símbolos de diversas tradições religiosas e esotéricas.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Tecido 100% algodão</li>
+                            <li><strong>Tamanhos:</strong> Pequeno (50x50cm), médio (70x70cm), grande (100x100cm)</li>
+                            <li><strong>Estampas:</strong> Símbolos de Umbanda, Candomblé, Cabala, entre outros</li>
+                            <li><strong>Indicação:</strong> Altares, mesas de trabalho, proteção de superfícies</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Lave à mão com sabão neutro para preservar as cores e símbolos.</p>
+                        
+                        <p class="product-call">🧿 <strong>Prepare seu espaço sagrado com nossas toalhas esotéricas!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/toalhas-esotericas.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details13')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns13')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping13')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details13" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Toalhas esotéricas com símbolos sagrados para uso em altares, rituais e trabalhos espirituais.</p>
+                        <p><strong>SKU:</strong> TOA-0012</p>
+                        <p><strong>Material:</strong> 100% algodão</p>
+                        <p><strong>Tamanhos:</strong> 50x50cm, 70x70cm, 100x100cm</p>
+                        <p><strong>Características:</strong> Estampas de símbolos sagrados</p>
+                    </div>
+                    
+                    <div id="returns13">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping13">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Velas Para Magias - Seção Completa -->
+        <div class="product-section" id="velas-para-magias-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/velas-tematicas/velas-tematicas.png" alt="Velas temáticas para magias" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/velas-tematicas/velas-tematicas-variedade.png" alt="Velas - Variedade de cores" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/velas-tematicas/velas-tematicas-detalhe.png" alt="Velas - Detalhe da queima" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/velas-tematicas/velas-tematicas-embalagem.png" alt="Velas - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas Temáticas
+                    </p>
+                    <h1>Velas Temáticas para Magias</h1>
+                    <p class="product-code">Código: VTM-0013</p>
+                    <p class="price">R$ 8,00 - R$ 25,00</p>
+                    <p class="price">(Também disponível por quilo - consulte valores)</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>51 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Velas coloridas e temáticas para diversos tipos de magias e trabalhos espirituais. Cada cor possui uma vibração específica, direcionando a energia para diferentes finalidades.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Cores:</strong> Branca, preta, vermelha, rosa, verde, azul, amarela, roxa</li>
+                            <li><strong>Formas:</strong> Cilíndricas, figuras, velas de anjo</li>
+                            <li><strong>Indicação:</strong> Amor, proteção, prosperidade, saúde, justiça</li>
+                            <li><strong>Tempo de queima:</strong> Varia de acordo com o tamanho da vela</li>
+                            <li><strong>Opções de compra:</strong> Unidade ou por quilo (consulte valores)</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Consagre sua vela com orações e intenções claras antes de acendê-la para potencializar seu trabalho.</p>
+                        
+                        <p class="product-call">🕯️ <strong>Realize seus trabalhos com nossas velas temáticas de alta qualidade!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/velas-para-magias.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details14')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns14')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping14')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details14" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Velas coloridas e temáticas para diversos tipos de magias e trabalhos espirituais.</p>
+                        <p><strong>SKU:</strong> VTM-0013</p>
+                        <p><strong>Material:</strong> Cera de parafina colorida</p>
+                        <p><strong>Tamanhos:</strong> Pequeno (10cm), médio (15cm), grande (20cm)</p>
+                        <p><strong>Características:</strong> Pavio de algodão, queima limpa</p>
+                        <p><strong>Opções de compra:</strong> Unidade ou por quilo (consulte valores)</p>
+                    </div>
+                    
+                    <div id="returns14">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping14">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pulseiras - Seção Completa -->
+        <div class="product-section" id="pulseiras-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/pulseiras/pulseiras.png" alt="Pulseiras de proteção espiritual" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/pulseiras/pulseiras00.png" alt="Pulseiras - Variedade de cores" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/pulseiras/pulseiras01.png" alt="Pulseiras - Detalhe dos detalhes" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/pulseiras/pulseiras02.png" alt="Pulseiras - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Acessórios / Pulseiras
+                    </p>
+                    <h1>Pulseiras de Proteção Espiritual</h1>
+                    <p class="product-code">Código: PUL-0014</p>
+                    <p class="price">R$ 25,00 - R$ 45,00</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>37 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Pulseiras artesanais feitas com contas e pedras naturais, cada uma com propriedades específicas de proteção e energização. Ideal para uso diário como amuleto de proteção espiritual.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Materiais:</strong> Contas de madeira, pedras naturais, miçangas</li>
+                            <li><strong>Cores:</strong> Variadas de acordo com a finalidade (proteção, amor, prosperidade)</li>
+                            <li><strong>Tamanhos:</strong> Ajustáveis para todos os tipos de pulso</li>
+                            <li><strong>Indicação:</strong> Proteção espiritual diária, energização pessoal</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Consagre sua pulseira com defumação e orações antes do primeiro uso para ativar suas propriedades.</p>
+                        
+                        <p class="product-call">🧿 <strong>Proteja-se diariamente com nossas pulseiras energéticas!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/pulseiras.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details15')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns15')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping15')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details15" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Pulseiras artesanais feitas com contas e pedras naturais para proteção espiritual.</p>
+                        <p><strong>SKU:</strong> PUL-0014</p>
+                        <p><strong>Material:</strong> Contas de madeira, pedras naturais, miçangas</p>
+                        <p><strong>Tamanho:</strong> Ajustável</p>
+                        <p><strong>Características:</strong> Cada peça é única, podendo apresentar variações</p>
+                    </div>
+                    
+                    <div id="returns15">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping15">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charutos - Seção Completa -->
+        <div class="product-section" id="charutos-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/charutos/charutos.png" alt="Charutos para defumação e oferendas" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/charutos/charutos-detalhe1.png" alt="Charutos - Vista frontal" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/charutos/charutos-detalhe2.png" alt="Charutos - Detalhe da embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/charutos/charutos-variedade.png" alt="Charutos - Variedade" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Defumação / Charutos
+                    </p>
+                    <h1>Charutos para Defumação e Oferendas</h1>
+                    <p class="product-code">Código: CHA-0015</p>
+                    <p class="price">R$ 04,50 - R$ 96,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span>22 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Charutos artesanais de qualidade para uso em defumações, rituais e oferendas. Produzidos com folhas de tabaco selecionadas, são amplamente utilizados em trabalhos espirituais da Umbanda e Quimbanda.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Folhas de tabaco natural</li>
+                            <li><strong>Tipos:</strong> Tradicional, com mel, com ervas especiais</li>
+                            <li><strong>Usos:</strong> Defumação, oferendas, rituais de purificação</li>
+                            <li><strong>Indicação:</strong> Umbanda, Quimbanda, cultos afro-brasileiros</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Armazene em local seco e arejado para manter a qualidade do tabaco.</p>
+                        
+                        <p class="product-call">💨 <strong>Realize suas defumações com nossos charutos de qualidade!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/charutos.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details16')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns16')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping16')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details16" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Charutos artesanais de qualidade para uso em defumações, rituais e oferendas.</p>
+                        <p><strong>SKU:</strong> CHA-0015</p>
+                        <p><strong>Material:</strong> Folhas de tabaco natural</li>
+                        <p><strong>Quantidade:</strong> 5 a 10 unidades por embalagem</p>
+                        <p><strong>Características:</strong> Produção artesanal, pode apresentar variações no tamanho</p>
+                    </div>
+                    
+                    <div id="returns16">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping16">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fio de Contas - Seção Completa -->
+        <div class="product-section" id="fio-de-contas-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/fios/fios-de-contas.png" alt="Fios de contas para proteção espiritual" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/fios/fios-de-contas-variedade.png" alt="Fios de Contas - Variedade de cores" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/fios/fios-de-contas-detalhe.png" alt="Fios de Contas - Detalhe das contas" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/fios/fios-de-contas-embalagem.png" alt="Fios de Contas - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Acessórios / Fios de Contas
+                    </p>
+                    <h1>Fios de Contas para Proteção Espiritual</h1>
+                    <p class="product-code">Código: FIO-0016</p>
+                    <p class="price">R$ 49,90 - R$ 435,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>29 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Fios de contas tradicionais feitos com materiais naturais, cada cor representando um orixá ou energia específica. Essenciais para proteção espiritual, iniciação e identificação dentro das religiões afro-brasileiras.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Materiais:</strong> Contas de vidro, pedras naturais, miçangas</li>
+                            <li><strong>Cores:</strong> Variadas de acordo com o orixá ou finalidade</li>
+                            <li><strong>Tamanhos:</strong> Padrão para pescoço ou pulso</li>
+                            <li><strong>Indicação:</strong> Proteção espiritual, identificação religiosa, iniciação</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Consagre seu fio de contas com os rituais apropriados antes do uso para ativar suas propriedades protetoras.</p>
+                        
+                        <p class="product-call">📿 <strong>Fortaleça sua conexão espiritual com nossos fios de contas tradicionais!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/fio-de-contas.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details17')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns17')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping17')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details17" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Fios de contas tradicionais feitos com materiais naturais para proteção espiritual.</p>
+                        <p><strong>SKU:</strong> FIO-0016</p>
+                        <p><strong>Material:</strong> Contas de vidro, pedras naturais, miçangas</p>
+                        <p><strong>Tamanho:</strong> Padrão para pescoço ou pulso</p>
+                        <p><strong>Características:</strong> Cada peça é única, podendo apresentar variações</p>
+                    </div>
+                    
+                    <div id="returns17">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping17">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outros Produtos - Seção Completa -->
+        <div class="product-section" id="outros-produtos-section">
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/outros/outros-produtos.png" alt="Variedade de produtos religiosos" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/outros/outros-produtos-variedade.png" alt="Produtos - Variedade" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/outros/outros-produtos-detalhe.png" alt="Produtos - Detalhe" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                        <img src="img/outros/outros-produtos-embalagem.png" alt="Produtos - Embalagem" 
+                             onclick="const main=this.closest('.product-gallery').querySelector('.main-image');main.style.opacity=0;setTimeout(()=>{main.src=this.src;main.alt=this.alt;main.style.opacity=1},200);this.parentNode.querySelectorAll('img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Diversos
+                    </p>
+                    <h1>Outros Produtos Religiosos</h1>
+                    <p class="product-code">Código: OUT-0017</p>
+                    <p class="price">R$ 2,00 - R$ 496,80</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span>18 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Variedade de produtos religiosos para complementar seus rituais e práticas espirituais. Inclui itens como incensos, imagens sagradas, sinetas, copos, pratos rituais e outros acessórios essenciais.</p>
+                        
+                        <h3>Principais Características:</h3>
+                        <ul>
+                            <li><strong>Tipos:</strong> Incensos, imagens, sinetas, copos, pratos rituais</li>
+                            <li><strong>Materiais:</strong> Madeira, metal, vidro, cerâmica</li>
+                            <li><strong>Usos:</strong> Rituais, altares, oferendas, limpeza espiritual</li>
+                            <li><strong>Indicação:</strong> Umbanda, Candomblé, esoterismo</li>
+                        </ul>
+                        
+                        <p class="product-tip">💡 <strong>Dica:</strong> Entre em contato para saber sobre a disponibilidade de produtos específicos.</p>
+                        
+                        <p class="product-call">🛍️ <strong>Complete seu estoque com nossa variedade de produtos religiosos!</strong></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/outros-produtos.html" class="view-catalog">
+                            <i class="fas fa-book"></i> Veja Catálogo
+                        </a>
+                        <a href="https://wa.me/5511982551647" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="delivery">
+                        <i class="fas fa-truck"></i> Estimativa de Entrega: Consulte nossos Termos e Condições
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details18')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns18')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping18')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details18" class="active">
+                        <h3>Informações Adicionais</h3>
+                        <p>Variedade de produtos religiosos para complementar seus rituais e práticas espirituais.</p>
+                        <p><strong>SKU:</strong> OUT-0017</p>
+                        <p><strong>Tipos:</strong> Incensos, imagens, sinetas, copos, pratos rituais</p>
+                        <p><strong>Características:</strong> Produtos variados, consulte disponibilidade</p>
+                    </div>
+                    
+                    <div id="returns18">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato com nosso atendimento via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>Os produtos devem ser devolvidos na embalagem original, sem indícios de uso e com todos os acessórios.</p>
+                    </div>
+                    
+                    <div id="shipping18">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e peso do produto.</p>
+                        <p>Entregas em São Paulo Capital podem ser agendadas diretamente com nosso terreiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i> Tema Claro
+            </button>
+            <div class="footer-simple">
+                <p>Criado com GitHub por Black Tuxedo E-Commerce Brasil CNPJ: 37.258.590/0001-67</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Função para mostrar a categoria selecionada no mobile
+        function showSelectedCategory() {
+            const selector = document.getElementById('category-selector');
+            const selectedValue = selector.value;
+            const productSections = document.querySelectorAll('.product-section');
+            
+            // Esconde todas as seções primeiro
+            productSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Mostra apenas a seção selecionada
+            if (selectedValue) {
+                const selectedSection = document.getElementById(`${selectedValue}-section`);
+                if (selectedSection) {
+                    selectedSection.style.display = 'block';
+                    
+                    // Rola suavemente para a seção selecionada
+                    setTimeout(() => {
+                        selectedSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
+                }
+            }
+        }
+
+        // Ativa a primeira categoria por padrão no mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                // Mostra o seletor de categoria
+                document.querySelector('.mobile-category-selector').style.display = 'block';
+                
+                // Esconde todas as categorias exceto a primeira
+                const productSections = document.querySelectorAll('.product-section');
+                productSections.forEach((section, index) => {
+                    section.style.display = index === 0 ? 'block' : 'none';
+                });
+                
+                // Define o valor do seletor para a primeira opção
+                document.getElementById('category-selector').value = 'alguidares';
+            }
+        });
+
+        // Desativa o botão da categoria atual
+        function disableCurrentCategoryButton() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const buttons = document.querySelectorAll('.view-catalog');
+            
+            buttons.forEach(button => {
+                const buttonHref = button.getAttribute('href').split('/').pop();
+                if (buttonHref === currentPage) {
+                    button.classList.add('current-page');
+                    button.style.opacity = '0.6';
+                    button.style.cursor = 'not-allowed';
+                    button.onclick = (e) => e.preventDefault();
+                }
+            });
+        }
+
+        // Chamar a função quando o DOM estiver carregado
+        document.addEventListener('DOMContentLoaded', function() {
+            disableCurrentCategoryButton();
+            
+            // Restante do código existente...
+            if (window.innerWidth <= 768) {
+                document.querySelector('.product-section').style.display = 'block';
+            }
+        });
+
+        // Função para alternar entre os temas claro e escuro
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
+                document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-moon"></i> Tema Escuro';
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+                document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun"></i> Tema Claro';
+            }
+        }
+
+        // Função para rolar as categorias
+        function scrollCategories(amount) {
+            const categories = document.querySelector('.categories');
+            categories.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+
+        // Função para abrir as abas de detalhes
+        function openTab(evt, tabName) {
+            const tabContents = document.querySelectorAll('.specs-content > div');
+            const tabLinks = document.querySelectorAll('.tabs li');
+            
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            tabLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Função para buscar produtos
+        function searchProducts() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const productSections = document.querySelectorAll('.product-section');
+            let found = false;
+            
+            productSections.forEach(section => {
+                const productName = section.querySelector('h1').textContent.toLowerCase();
+                const productDesc = section.querySelector('.product-description').textContent.toLowerCase();
+                
+                if (productName.includes(searchTerm) || productDesc.includes(searchTerm)) {
+                    section.style.display = 'block';
+                    found = true;
+                    
+                    // Rolagem suave para o produto encontrado
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            
+            if (!found) {
+                alert('Nenhum produto encontrado com o termo: ' + searchTerm);
+            }
+        }
+
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.overlay').classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar no overlay
+        document.querySelector('.overlay').addEventListener('click', function() {
+            this.classList.remove('active');
+            document.querySelector('.mobile-menu').classList.remove('active');
+            document.querySelector('.menu-toggle').classList.remove('active');
+        });
+
+        // Animação de texto alternado
+        const textOptions = [
+            ["ALGUIDARES", "VELAS PALITOS", "QUARTINHAS", "VELAS 7 DIAS", "TINTURAS MAGIAS", "BANHOS DE ERVAS", "TRIDENTES", "BARALHOS DIVERSOS"],
+            ["NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA"]
+        ];
+
+        function updateAnimatedText() {
+            const container = document.getElementById('animated-text-container');
+            // Escolhe aleatoriamente entre as duas opções de texto
+            const selectedOption = Math.random() > 0.5 ? textOptions[0] : textOptions[1];
+            
+            // Limpa o container
+            container.innerHTML = '';
+            
+            // Adiciona os textos duplicados para fluxo contínuo
+            for (let i = 0; i < 2; i++) { // Duplica o conteúdo para criar fluxo contínuo
+                selectedOption.forEach(text => {
+                    const textElement = document.createElement('div');
+                    textElement.className = 'sine-wave-text';
+                    textElement.textContent = text;
+                    container.appendChild(textElement);
+                });
+            }
+        }
+
+        // Inicializa o texto animado e atualiza periodicamente
+        updateAnimatedText();
+        setInterval(updateAnimatedText, 15000); // Muda a cada 15 segundos
+
+        // Mostra a primeira seção por padrão no mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.product-section').style.display = 'block';
+            }
+        });
+
+        // Função para mudar a imagem principal quando clicar nas miniaturas
+        function changeMainImage(mainImageElement, newSrc, newAlt) {
+            mainImageElement.style.opacity = 0;
+            setTimeout(() => {
+                mainImageElement.src = newSrc;
+                mainImageElement.alt = newAlt;
+                mainImageElement.style.opacity = 1;
+                
+                // Remove a classe 'active' de todas as miniaturas
+                const thumbnails = mainImageElement.closest('.product-gallery').querySelectorAll('.gallery-thumbnails img');
+                thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                
+                // Adiciona a classe 'active' na miniatura clicada
+                event.target.classList.add('active');
+            }, 200);
+        }
+
+        // Funções para controle de quantidade
+        function increaseQuantity(id) {
+            const input = document.getElementById(id);
+            if (input.value < parseInt(input.max)) {
+                input.value = parseInt(input.value) + 1;
+            }
+        }
+
+        function decreaseQuantity(id) {
+            const input = document.getElementById(id);
+            if (input.value > parseInt(input.min)) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // Funções para os botões (simuladas)
+        function addToPdf(productName, price, quantityId) {
+            const quantity = document.getElementById(quantityId).value;
+            alert(`Adicionado ao PDF: ${quantity}x ${productName} - R$ ${(price * quantity).toFixed(2)}`);
+        }
+
+        function addToWishlist(productName, price) {
+            alert(`${productName} adicionado à lista de desejos!`);
+        }
+
+        function buyProduct(productName, price, quantityId) {
+            const quantity = document.getElementById(quantityId).value;
+            alert(`Compra realizada: ${quantity}x ${productName} - R$ ${(price * quantity).toFixed(2)}`);
+        }
+
+        function generateAllPdf() {
+            alert("PDF com todos os pedidos gerado com sucesso!");
+        }
+    </script>
+</body>
+</html>

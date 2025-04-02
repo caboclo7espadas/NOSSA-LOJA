@@ -1,0 +1,2752 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velas 7 Dias Coloridas - Terreiro Escola de Umbanda Caboclo das 7 Espadas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        /* Melhorias para o seletor de categoria mobile */
+        .mobile-category-selector {
+            display: none;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: var(--card-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-category-selector select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--secondary-color);
+            font-size: 16px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+        }
+        
+        .mobile-category-selector select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        /* Ajuste para o menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100%;
+            background-color: var(--primary-color);
+            z-index: 999;
+            padding: 80px 20px 20px;
+            transition: right 0.3s ease-in-out;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 12px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+        
+        .mobile-nav-links a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        :root {
+            --primary-color: #000;
+            --secondary-color: #333;
+            --accent-color: #cc9900;
+            --text-color: #eee;
+            --bg-color: #121212;
+            --card-color: #1e1e1e;
+            --menu-toggle-color: #fff;
+            --menu-toggle-bg: #000;
+            --product-text-color: #eee;
+        }
+        
+        .light-theme {
+            --primary-color: #222;
+            --secondary-color: #444;
+            --accent-color: #ffcc00;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --card-color: #fff;
+            --menu-toggle-color: #000;
+            --menu-toggle-bg: #fff;
+            --product-text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        /* Animação NOSSA LOJA */
+        .sine-wave-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            white-space: nowrap;
+            background-color: var(--primary-color);
+            margin: 20px 0;
+        }
+
+        .sine-wave-container {
+            display: flex;
+            animation: sineWave 15s linear infinite;
+        }
+
+        .sine-wave-text {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 30px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        @keyframes sineWave {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* Estilo do Logo */
+        .logo img {
+            height: 180px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 .loja-name {
+            font-size: 20px;
+            display: none;
+        }
+        
+        .logo h1 .loja-subtitle {
+            font-size: 18px;
+        }
+
+        /* Ajuste para celulares */
+        @media (max-width: 768px) {
+            .sine-wave-text {
+                font-size: 1.5rem;
+                margin-right: 20px;
+            }
+            .sine-wave-container {
+                animation: sineWave 12s linear infinite;
+            }
+            
+            .logo img {
+                height: 200px;
+            }
+            
+            .logo h1 .loja-subtitle {
+                font-size: 16px;
+                margin-top: 5px;
+                text-align: center;
+            }
+            
+            .logo {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Restante do CSS permanece igual */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            order: 1;
+            flex: 1;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1000;
+            background-color: var(--menu-toggle-bg);
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--menu-toggle-color);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--primary-color);
+            z-index: 999;
+            padding: 80px 20px 20px;
+            transition: right 0.3s;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .mobile-nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            order: 2;
+            flex: 2;
+            justify-content: flex-end;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Ajustes para a barra de busca e botões */
+        .user-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            order: 3;
+            width: 100%;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 0; /* Removemos a margem inferior */
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .search-bar {
+            flex: 1;
+            min-width: 200px; /* Largura mínima reduzida */
+            max-width: 400px; /* Largura máxima definida */
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 8px 15px;
+        }
+        
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        .search-bar i {
+            color: #555;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+        
+        .search-bar i:hover {
+            color: #000;
+        }
+        
+        /* Reduzir o tamanho dos botões */
+        .login-button, .delete-data-button {
+            padding: 8px 12px; /* Reduzido de 10px 15px */
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;   /* Reduzido de 14px */
+            transition: all 0.3s;
+        }
+        
+        .login-button {
+            background-color: #4267B2;
+            color: white;
+        }
+        
+        .login-button:hover {
+            background-color: #3b5998;
+            transform: translateY(-2px);
+        }
+        
+        .delete-data-button {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .delete-data-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .categories-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--secondary-color);
+            padding: 10px 0;
+            position: relative;
+        }
+        
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 10px;
+            padding: 0 40px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-link {
+            white-space: nowrap;
+            padding: 8px 15px;
+            background-color: #555;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .category-link:hover {
+            background-color: #777;
+            transform: translateY(-2px);
+        }
+
+        .category-link.current-page {
+            background-color: var(--accent-color);
+            color: #000;
+            cursor: default;
+            pointer-events: none;
+        }
+        
+        .scroll-button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+        
+        .scroll-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .scroll-button.left {
+            left: 5px;
+        }
+        
+        .scroll-button.right {
+            right: 5px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .product-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: var(--card-color);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .gallery-thumbnails img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .gallery-thumbnails img:hover {
+            border-color: #4267B2;
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .product-path {
+            color: var(--product-text-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .product-info h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: var(--product-text-color);
+        }
+        
+        .product-code {
+            color: var(--product-text-color);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--product-text-color);
+            margin: 15px 0;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .rating i {
+            color: #FFD700;
+        }
+        
+        .rating span {
+            font-size: 14px;
+            color: var(--product-text-color);
+            margin-left: 10px;
+        }
+        
+        .product-description {
+            margin: 20px 0;
+            color: var(--product-text-color);
+        }
+        
+        .product-description h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--product-text-color);
+        }
+        
+        .product-description ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .product-description li {
+            margin-bottom: 8px;
+            color: var(--product-text-color);
+        }
+        
+        /* Estilo dos botões conforme a página de produtos religiosos */
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .pdf-button, .wishlist-button, .buy-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .pdf-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .pdf-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .wishlist-button {
+            background-color: #25D366; /* Verde WhatsApp */
+            color: white;
+        }
+        
+        .wishlist-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .buy-button {
+            background-color: var(--accent-color); /* Amarelo */
+            color: #000;
+        }
+        
+        .buy-button:hover {
+            background-color: #ffdd33;
+            transform: translateY(-2px);
+        }
+        
+        /* Controle de quantidade */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .quantity-control button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-control input {
+            width: 50px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: var(--card-color);
+            color: var(--product-text-color);
+        }
+        
+        .delivery {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--product-text-color);
+            font-size: 14px;
+        }
+        
+        .product-specs {
+            margin: 40px 0;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .tabs li {
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: #ccc;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .tabs li:hover {
+            color: var(--accent-color);
+        }
+        
+        .tabs li.active {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+        
+        .specs-content {
+            border: 1px solid var(--secondary-color);
+            border-radius: 0 5px 5px 5px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 25px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .specs-content > div {
+            display: none;
+        }
+        
+        .specs-content > div.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .specs-content h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #fff;
+        }
+        
+        .specs-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .specs-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .specs-content li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-simple p {
+            margin: 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+        
+        .theme-toggle {
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 998;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Estilos para o seletor de categoria mobile */
+        .mobile-category-selector {
+            display: none;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-category-selector select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: var(--card-color);
+            color: var(--product-text-color);
+            border: 1px solid var(--secondary-color);
+        }
+        
+        /* Esconder todas as seções de produtos inicialmente no mobile */
+        @media (max-width: 768px) {
+            .product-section {
+                display: none;
+            }
+            
+            .product-section.active {
+                display: block;
+            }
+            
+            .mobile-category-selector {
+                display: block;
+            }
+            
+            .categories-container {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                order: 2;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            /* Ajustes para mobile */
+            .user-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .button-group {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .search-bar {
+                min-width: 100%;
+                max-width: 100%;
+            }
+            
+            /* Botões ainda menores em mobile */
+            .login-button, .delete-data-button {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .main-image {
+                height: 350px;
+            }
+            
+            .tabs {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .tabs li {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .login-button, .delete-data-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Estilos específicos para variantes de produtos */
+        .variant-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .variant-option {
+            padding: 8px 15px;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .variant-option.selected {
+            background-color: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+        }
+
+        .variant-option:hover {
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body class="dark-theme">    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Terreiro Caboclo 7 Espadas">
+                <h1>
+                    <span class="loja-name">Terreiro Caboclo 7 Espadas</span>
+                    <span class="loja-subtitle">TERREIRO ESCOLA DE UMBANDA<br>CABOCLO DAS 7 ESPADAS</span>
+                </h1>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-links">
+                <a href="https://terreiro-escola-umbanda.systeme.io/caboclo7espadas">Início</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/cursos-terreiro">Cursos</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao">Notícias</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao">Páginas</a>
+                <a href="https://terreiro-escola-umbanda.systeme.io/endereco-terreiro">Endereço</a>
+                <a href="https://templo-quimbandacasadetiriri.systeme.io/bem-vindos">Quimbanda</a>
+                <a href="https://wa.me/5511982551647">Contato</a>
+            </nav>
+            
+            <!-- Menu Mobile -->
+            <div class="mobile-menu">
+                <nav class="mobile-nav-links">
+                    <a href="https://terreiro-escola-umbanda.systeme.io/caboclo7espadas"><i class="fas fa-home"></i> Início</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/cursos-terreiro"><i class="fas fa-graduation-cap"></i> Cursos</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao"><i class="fas fa-newspaper"></i> Notícias</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/link-em-contrucao"><i class="fas fa-file-alt"></i> Páginas</a>
+                    <a href="https://terreiro-escola-umbanda.systeme.io/endereco-terreiro"><i class="fas fa-map-marker-alt"></i> Endereço</a>
+                    <a href="https://templo-quimbandacasadetiriri.systeme.io/bem-vindos"><i class="fas fa-star"></i> Quimbanda</a>
+                    <a href="https://wa.me/5511982551647"><i class="fas fa-phone-alt"></i> Contato</a>
+                </nav>
+            </div>
+            
+            <div class="overlay"></div>
+            
+            <div class="user-actions">
+                <div class="button-group">
+                    <a href="cadastro.html" class="login-button">
+                        <i class="fas fa-user"></i> Login / Cadastro
+                    </a>
+                    <a href="https://caboclo7espadas.github.io/NOSSA-LOJA/exclusao-dados.html" class="delete-data-button">
+                        <i class="fas fa-trash-alt"></i> Solicitar Exclusão
+                    </a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Buscar produto">
+                    <i class="fas fa-search" onclick="searchProducts()"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="categories-container">
+            <button class="scroll-button left" onclick="scrollCategories(-100)">&#10094;</button>
+            <div class="categories">
+                <a href="alguidares.html" class="category-link">Alguidares</a>
+                <a href="velas-palitos-coloridas.html" class="category-link">Velas Palitos Coloridas</a>
+                <a href="quartinhas.html" class="category-link">Quartinhas Barro e Cerâmica</a>
+                <a href="velas-7-dias.html" class="category-link current-page">Velas 7 Dias Coloridas</a>
+                <a href="tinturas-magias.html" class="category-link">Tinturas para Magias</a>
+                <a href="banhos-de-ervas.html" class="category-link">Banhos de Ervas</a>
+                <a href="tridentes.html" class="category-link">Tridentes Temporal e Atemporal</a>
+                <a href="baralhos-diversos.html" class="category-link">Baralhos Diversos</a>
+                <a href="pedras-naturais.html" class="category-link">Pedras Naturais</a>
+                <a href="pos-e-oleos.html" class="category-link">Pós e Óleos</a>
+                <a href="pregos.html" class="category-link">Pregos</a>
+                <a href="parafusos.html" class="category-link">Parafusos</a>
+                <a href="toalhas-esotericas.html" class="category-link">Toalhas Esotéricas</a>
+                <a href="velas-para-magias.html" class="category-link">Velas Temáticas</a>
+                <a href="pulseiras.html" class="category-link">Pulseiras</a>
+                <a href="charutos.html" class="category-link">Charutos</a>
+                <a href="fio-de-contas.html" class="category-link">Fio de Contas</a>
+                <a href="outros-produtos.html" class="category-link">Outros Produtos</a>
+            </div>
+            <button class="scroll-button right" onclick="scrollCategories(100)">&#10095;</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Animação NOSSA LOJA -->
+        <div class="sine-wave-wrapper">
+            <div class="sine-wave-container" id="animated-text-container">
+                <!-- O conteúdo será preenchido pelo JavaScript -->
+            </div>
+        </div>
+
+        <!-- Seletor de categoria para mobile - Versão melhorada -->
+        <div class="mobile-category-selector">
+            <select id="category-selector" onchange="showSelectedCategory()">                
+                <option value="alguidares">Alguidares</option>
+                <option value="velas-palitos">Velas Palitos Coloridas</option>
+                <option value="quartinhas">Quartinhas Barro e Cerâmica</option>
+                <option value="velas-7-dias" selected>Velas 7 Dias Coloridas</option>
+                <option value="tinturas-magias">Tinturas para Magias</option>
+                <option value="banhos-de-ervas">Banhos de Ervas</option>
+                <option value="tridentes">Tridentes Temporal e Atemporal</option>
+                <option value="baralhos-diversos">Baralhos Diversos</option>
+                <option value="pedras-naturais">Pedras Naturais</option>
+                <option value="pos-e-oleos">Pós e Óleos</option>
+                <option value="pregos">Pregos</option>
+                <option value="parafusos">Parafusos</option>
+                <option value="toalhas-esotericas">Toalhas Esotéricas</option>
+                <option value="velas-para-magias">Velas Temáticas</option>
+                <option value="pulseiras">Pulseiras</option>
+                <option value="charutos">Charutos</option>
+                <option value="fio-de-contas">Fio de Contas</option>
+                <option value="outros-produtos">Outros Produtos</option>
+            </select>
+        </div>
+
+        <!-- Velas 7 Dias Coloridas -->
+        <div class="product-section active" id="velas-7-dias-section">
+            <!-- Vela 7 Dias Branca -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-branca.jpg" alt="Vela 7 Dias Branca" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-branca-1.jpg" alt="Vela 7 Dias Branca - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-branca-2.jpg" alt="Vela 7 Dias Branca - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Branca - Unidade</h1>
+                    <p class="product-code">Código: V7D-BRANCA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>52 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias branca de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de purificação, proteção e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura branca</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de purificação e limpeza espiritual</li>
+                            <li>Trabalhos com anjos e guias espirituais</li>
+                            <li>Proteção e harmonização de ambientes</li>
+                            <li>Meditação e conexão espiritual</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-branca')">-</button>
+                            <input type="number" id="qty-7dias-branca" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-branca')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Branca', 9.90, 'qty-7dias-branca')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Branca', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Branca', 9.90, 'qty-7dias-branca')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Preta -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-preta.jpg" alt="Vela 7 Dias Preta" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-preta-1.jpg" alt="Vela 7 Dias Preta - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-preta-2.jpg" alt="Vela 7 Dias Preta - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Preta - Unidade</h1>
+                    <p class="product-code">Código: V7D-PRETA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>38 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias preta de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de proteção, banimento de energias negativas e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura preta</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de proteção e defesa espiritual</li>
+                            <li>Banimento de energias negativas</li>
+                            <li>Trabalhos de limpeza energética</li>
+                            <li>Proteção contra inveja e mau-olhado</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-preta')">-</button>
+                            <input type="number" id="qty-7dias-preta" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-preta')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Preta', 9.90, 'qty-7dias-preta')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Preta', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Preta', 9.90, 'qty-7dias-preta')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Vermelha -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-vermelha.jpg" alt="Vela 7 Dias Vermelha" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-vermelha-1.jpg" alt="Vela 7 Dias Vermelha - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-vermelha-2.jpg" alt="Vela 7 Dias Vermelha - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Vermelha - Unidade</h1>
+                    <p class="product-code">Código: V7D-VERMELHA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>45 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias vermelha de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de amor, paixão, força vital e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura vermelha</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de amor e paixão</li>
+                            <li>Trabalhos para aumentar a força vital</li>
+                            <li>Proteção e coragem</li>
+                            <li>Atrair vitalidade e energia</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-vermelha')">-</button>
+                            <input type="number" id="qty-7dias-vermelha" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-vermelha')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Vermelha', 9.90, 'qty-7dias-vermelha')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Vermelha', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Vermelha', 9.90, 'qty-7dias-vermelha')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Velas 7 Dias Coloridas -->
+        <div class="product-section active" id="velas-7-dias-section">
+            <!-- Vela 7 Dias Branca - Atualizada com seleção de aromas -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-branca.jpg" alt="Vela 7 Dias Branca" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-branca-1.jpg" alt="Vela 7 Dias Branca - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-branca-2.jpg" alt="Vela 7 Dias Branca - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Branca - Unidade</h1>
+                    <p class="product-code">Código: V7D-BRANCA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>52 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias branca de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de purificação, proteção e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura branca</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <div class="candle-variants">
+                            <h4>Opções Disponíveis:</h4>
+                            <div class="variant-options">
+                                <div class="variant-option selected" onclick="selectVariant(this, 'PADRAO', 'qty-7dias-branca')">Padrão</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'MEL', 'qty-7dias-branca')">Com Mel</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'ALFAZEMA', 'qty-7dias-branca')">Com Alfazema</div>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-branca')">-</button>
+                            <input type="number" id="qty-7dias-branca" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-branca')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Branca', 9.90, 'qty-7dias-branca')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Branca', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Branca', 9.90, 'qty-7dias-branca')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Preta - Atualizada com seleção de aromas -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-preta.jpg" alt="Vela 7 Dias Preta" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-preta-1.jpg" alt="Vela 7 Dias Preta - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-preta-2.jpg" alt="Vela 7 Dias Preta - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Preta - Unidade</h1>
+                    <p class="product-code">Código: V7D-PRETA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>38 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias preta de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de proteção, banimento de energias negativas e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura preta</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <div class="candle-variants">
+                            <h4>Opções Disponíveis:</h4>
+                            <div class="variant-options">
+                                <div class="variant-option selected" onclick="selectVariant(this, 'PADRAO', 'qty-7dias-preta')">Padrão</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'MIRRA', 'qty-7dias-preta')">Com Mirra</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'ALECRIM', 'qty-7dias-preta')">Com Alecrim</div>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-preta')">-</button>
+                            <input type="number" id="qty-7dias-preta" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-preta')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Preta', 9.90, 'qty-7dias-preta')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Preta', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Preta', 9.90, 'qty-7dias-preta')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Vermelha - Atualizada com seleção de aromas -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-vermelha.jpg" alt="Vela 7 Dias Vermelha" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-vermelha-1.jpg" alt="Vela 7 Dias Vermelha - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-vermelha-2.jpg" alt="Vela 7 Dias Vermelha - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Vermelha - Unidade</h1>
+                    <p class="product-code">Código: V7D-VERMELHA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>45 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias vermelha de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de amor, paixão, força vital e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura vermelha</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <div class="candle-variants">
+                            <h4>Opções Disponíveis:</h4>
+                            <div class="variant-options">
+                                <div class="variant-option selected" onclick="selectVariant(this, 'PADRAO', 'qty-7dias-vermelha')">Padrão</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'CANELA', 'qty-7dias-vermelha')">Com Canela</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'ROSA', 'qty-7dias-vermelha')">Com Essência de Rosas</div>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-vermelha')">-</button>
+                            <input type="number" id="qty-7dias-vermelha" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-vermelha')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Vermelha', 9.90, 'qty-7dias-vermelha')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Vermelha', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Vermelha', 9.90, 'qty-7dias-vermelha')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Dourada Especial -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-dourada.jpg" alt="Vela 7 Dias Dourada Especial" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-dourada-1.jpg" alt="Vela 7 Dias Dourada - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-dourada-2.jpg" alt="Vela 7 Dias Dourada - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas Especiais
+                    </p>
+                    <h1>Vela 7 Dias Dourada Especial</h1>
+                    <p class="product-code">Código: V7D-DOURADA-ESP</p>
+                    <p class="price">R$ 14,90 <span class="price-note">(produto premium)</span></p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>36 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias dourada premium, produzida com parafina de alta qualidade e pigmentação especial que confere brilho metálico. Ideal para rituais de prosperidade, abundância e trabalhos espirituais elevados.</p>
+                        
+                        <h3>Características Exclusivas:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina premium com pigmentação dourada</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Efeito visual:</strong> Brilho metálico intenso</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <div class="candle-variants">
+                            <h4>Opções Disponíveis:</h4>
+                            <div class="variant-options">
+                                <div class="variant-option selected" onclick="selectVariant(this, 'PADRAO', 'qty-7dias-dourada')">Padrão</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'MEL', 'qty-7dias-dourada')">Com Mel</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'CANELA', 'qty-7dias-dourada')">Com Canela</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'VANILIA', 'qty-7dias-dourada')">Com Baunilha</div>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-dourada')">-</button>
+                            <input type="number" id="qty-7dias-dourada" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-dourada')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Dourada Especial', 14.90, 'qty-7dias-dourada')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Dourada Especial', 14.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Dourada Especial', 14.90, 'qty-7dias-dourada')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Prateada Especial -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-prateada.jpg" alt="Vela 7 Dias Prateada Especial" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-prateada-1.jpg" alt="Vela 7 Dias Prateada - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-prateada-2.jpg" alt="Vela 7 Dias Prateada - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas Especiais
+                    </p>
+                    <h1>Vela 7 Dias Prateada Especial</h1>
+                    <p class="product-code">Código: V7D-PRATEADA-ESP</p>
+                    <p class="price">R$ 14,90 <span class="price-note">(produto premium)</span></p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>28 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias prateada premium, produzida com parafina de alta qualidade e pigmentação especial que confere brilho metálico. Ideal para rituais de intuição, proteção psíquica e conexão com energias lunares.</p>
+                        
+                        <h3>Características Exclusivas:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina premium com pigmentação prateada</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Efeito visual:</strong> Brilho metálico intenso</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <div class="candle-variants">
+                            <h4>Opções Disponíveis:</h4>
+                            <div class="variant-options">
+                                <div class="variant-option selected" onclick="selectVariant(this, 'PADRAO', 'qty-7dias-prateada')">Padrão</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'LAVANDA', 'qty-7dias-prateada')">Com Lavanda</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'JASMIN', 'qty-7dias-prateada')">Com Jasmim</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'ALECRIM', 'qty-7dias-prateada')">Com Alecrim</div>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-prateada')">-</button>
+                            <input type="number" id="qty-7dias-prateada" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-prateada')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Prateada Especial', 14.90, 'qty-7dias-prateada')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Prateada Especial', 14.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Prateada Especial', 14.90, 'qty-7dias-prateada')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Bicolor Branca e Preta -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-bicolor.jpg" alt="Vela 7 Dias Bicolor Branca e Preta" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-bicolor-1.jpg" alt="Vela 7 Dias Bicolor - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-bicolor-2.jpg" alt="Vela 7 Dias Bicolor - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas Bicolores
+                    </p>
+                    <h1>Vela 7 Dias Bicolor Branca e Preta</h1>
+                    <p class="product-code">Código: V7D-BICOLOR-BP</p>
+                    <p class="price">R$ 12,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>31 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias bicolor branca e preta de alta qualidade, produzida com parafina 100% pura. Ideal para rituais de equilíbrio entre luz e sombra, sabedoria e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura branca e preta</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <div class="candle-variants">
+                            <h4>Opções Disponíveis:</h4>
+                            <div class="variant-options">
+                                <div class="variant-option selected" onclick="selectVariant(this, 'PADRAO', 'qty-7dias-bicolor')">Padrão</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'MIRRA', 'qty-7dias-bicolor')">Com Mirra</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'SANDALO', 'qty-7dias-bicolor')">Com Sândalo</div>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-bicolor')">-</button>
+                            <input type="number" id="qty-7dias-bicolor" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-bicolor')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Bicolor Branca/Preta', 12.90, 'qty-7dias-bicolor')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Bicolor Branca/Preta', 12.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Bicolor Branca/Preta', 12.90, 'qty-7dias-bicolor')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Tricolor Branca, Vermelha e Preta -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-tricolor.jpg" alt="Vela 7 Dias Tricolor Branca, Vermelha e Preta" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-tricolor-1.jpg" alt="Vela 7 Dias Tricolor - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-tricolor-2.jpg" alt="Vela 7 Dias Tricolor - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas Tricolores
+                    </p>
+                    <h1>Vela 7 Dias Tricolor Branca, Vermelha e Preta</h1>
+                    <p class="product-code">Código: V7D-TRICOLOR-BVP</p>
+                    <p class="price">R$ 15,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>24 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias tricolor branca, vermelha e preta de alta qualidade, produzida com parafina 100% pura. Ideal para rituais de proteção, força e equilíbrio espiritual.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura branca, vermelha e preta</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <div class="candle-variants">
+                            <h4>Opções Disponíveis:</h4>
+                            <div class="variant-options">
+                                <div class="variant-option selected" onclick="selectVariant(this, 'PADRAO', 'qty-7dias-tricolor')">Padrão</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'MIRRA', 'qty-7dias-tricolor')">Com Mirra</div>
+                                <div class="variant-option" onclick="selectVariant(this, 'BENJUI', 'qty-7dias-tricolor')">Com Benjoim</div>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-tricolor')">-</button>
+                            <input type="number" id="qty-7dias-tricolor" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-tricolor')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Tricolor Branca/Vermelha/Preta', 15.90, 'qty-7dias-tricolor')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Tricolor Branca/Vermelha/Preta', 15.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Tricolor Branca/Vermelha/Preta', 15.90, 'qty-7dias-tricolor')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Azul -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-azul.jpg" alt="Vela 7 Dias Azul" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-azul-1.jpg" alt="Vela 7 Dias Azul - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-azul-2.jpg" alt="Vela 7 Dias Azul - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Azul - Unidade</h1>
+                    <p class="product-code">Código: V7D-AZUL</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>42 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias azul de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de paz, harmonia, proteção espiritual e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura azul</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de paz e harmonia</li>
+                            <li>Trabalhos para proteção espiritual</li>
+                            <li>Meditação e intuição</li>
+                            <li>Atrair tranquilidade e serenidade</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-azul')">-</button>
+                            <input type="number" id="qty-7dias-azul" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-azul')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Azul', 9.90, 'qty-7dias-azul')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Azul', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Azul', 9.90, 'qty-7dias-azul')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Verde -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-verde.jpg" alt="Vela 7 Dias Verde" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-verde-1.jpg" alt="Vela 7 Dias Verde - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-verde-2.jpg" alt="Vela 7 Dias Verde - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Verde - Unidade</h1>
+                    <p class="product-code">Código: V7D-VERDE</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>36 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias verde de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de prosperidade, saúde, fertilidade e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura verde</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de prosperidade e abundância</li>
+                            <li>Trabalhos para saúde e cura</li>
+                            <li>Fertilidade e crescimento</li>
+                            <li>Atrair sorte e oportunidades</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-verde')">-</button>
+                            <input type="number" id="qty-7dias-verde" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-verde')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Verde', 9.90, 'qty-7dias-verde')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Verde', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Verde', 9.90, 'qty-7dias-verde')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Amarela -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-amarela.jpg" alt="Vela 7 Dias Amarela" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-amarela-1.jpg" alt="Vela 7 Dias Amarela - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-amarela-2.jpg" alt="Vela 7 Dias Amarela - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Amarela - Unidade</h1>
+                    <p class="product-code">Código: V7D-AMARELA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>29 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias amarela de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de prosperidade, sucesso, criatividade e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura amarela</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de prosperidade e sucesso</li>
+                            <li>Trabalhos para criatividade e intelecto</li>
+                            <li>Atrair riqueza e abundância</li>
+                            <li>Confiança e autoestima</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-amarela')">-</button>
+                            <input type="number" id="qty-7dias-amarela" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-amarela')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Amarela', 9.90, 'qty-7dias-amarela')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Amarela', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Amarela', 9.90, 'qty-7dias-amarela')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Rosa -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-rosa.jpg" alt="Vela 7 Dias Rosa" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-rosa-1.jpg" alt="Vela 7 Dias Rosa - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-rosa-2.jpg" alt="Vela 7 Dias Rosa - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Rosa - Unidade</h1>
+                    <p class="product-code">Código: V7D-ROSA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>31 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias rosa de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de amor, harmonia, amizade e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura rosa</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de amor e romance</li>
+                            <li>Trabalhos para harmonia familiar</li>
+                            <li>Amizade e relacionamentos</li>
+                            <li>Cura emocional e autoamor</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-rosa')">-</button>
+                            <input type="number" id="qty-7dias-rosa" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-rosa')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Rosa', 9.90, 'qty-7dias-rosa')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Rosa', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Rosa', 9.90, 'qty-7dias-rosa')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Roxa -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-roxa.jpg" alt="Vela 7 Dias Roxa" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-roxa-1.jpg" alt="Vela 7 Dias Roxa - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-roxa-2.jpg" alt="Vela 7 Dias Roxa - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Roxa - Unidade</h1>
+                    <p class="product-code">Código: V7D-ROXA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>27 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias roxa de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de espiritualidade, transmutação, conexão com o divino e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura roxa</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de espiritualidade e elevação</li>
+                            <li>Trabalhos de transmutação energética</li>
+                            <li>Conexão com o divino e intuição</li>
+                            <li>Proteção psíquica e limpeza espiritual</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-roxa')">-</button>
+                            <input type="number" id="qty-7dias-roxa" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-roxa')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Roxa', 9.90, 'qty-7dias-roxa')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Roxa', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Roxa', 9.90, 'qty-7dias-roxa')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Dourada -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-dourada.jpg" alt="Vela 7 Dias Dourada" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-dourada-1.jpg" alt="Vela 7 Dias Dourada - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-dourada-2.jpg" alt="Vela 7 Dias Dourada - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Dourada - Unidade</h1>
+                    <p class="product-code">Código: V7D-DOURADA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>33 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias dourada de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de prosperidade, sucesso, riqueza e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura com pigmentação dourada</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de prosperidade e riqueza</li>
+                            <li>Trabalhos para sucesso e reconhecimento</li>
+                            <li>Atrair abundância e oportunidades</li>
+                            <li>Elevação espiritual e conexão com o divino</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-dourada')">-</button>
+                            <input type="number" id="qty-7dias-dourada" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-dourada')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Dourada', 9.90, 'qty-7dias-dourada')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Dourada', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Dourada', 9.90, 'qty-7dias-dourada')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Prateada -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-prateada.jpg" alt="Vela 7 Dias Prateada" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-prateada-1.jpg" alt="Vela 7 Dias Prateada - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-prateada-2.jpg" alt="Vela 7 Dias Prateada - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Prateada - Unidade</h1>
+                    <p class="product-code">Código: V7D-PRATEADA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>28 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias prateada de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de intuição, proteção, equilíbrio emocional e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura com pigmentação prateada</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de intuição e clarividência</li>
+                            <li>Trabalhos para proteção psíquica</li>
+                            <li>Equilíbrio emocional e mental</li>
+                            <li>Conexão com energias lunares</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-prateada')">-</button>
+                            <input type="number" id="qty-7dias-prateada" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-prateada')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Prateada', 9.90, 'qty-7dias-prateada')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Prateada', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Prateada', 9.90, 'qty-7dias-prateada')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Marrom -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-marrom.jpg" alt="Vela 7 Dias Marrom" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-marrom-1.jpg" alt="Vela 7 Dias Marrom - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-marrom-2.jpg" alt="Vela 7 Dias Marrom - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Marrom - Unidade</h1>
+                    <p class="product-code">Código: V7D-MARROM</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>25 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias marrom de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de estabilidade, conexão com a terra, justiça e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura marrom</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de estabilidade e segurança</li>
+                            <li>Trabalhos para conexão com a terra</li>
+                            <li>Justiça e questões legais</li>
+                            <li>Proteção de bens materiais</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-marrom')">-</button>
+                            <input type="number" id="qty-7dias-marrom" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-marrom')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Marrom', 9.90, 'qty-7dias-marrom')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Marrom', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Marrom', 9.90, 'qty-7dias-marrom')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Lilás -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-lilas.jpg" alt="Vela 7 Dias Lilás" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-lilas-1.jpg" alt="Vela 7 Dias Lilás - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-lilas-2.jpg" alt="Vela 7 Dias Lilás - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Lilás - Unidade</h1>
+                    <p class="product-code">Código: V7D-LILAS</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>22 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias lilás de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de espiritualidade, sabedoria, transmutação e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura lilás</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de espiritualidade e sabedoria</li>
+                            <li>Trabalhos para transmutação energética</li>
+                            <li>Expansão da consciência</li>
+                            <li>Conexão com guias espirituais</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-lilas')">-</button>
+                            <input type="number" id="qty-7dias-lilas" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-lilas')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Lilás', 9.90, 'qty-7dias-lilas')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Lilás', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Lilás', 9.90, 'qty-7dias-lilas')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vela 7 Dias Laranja -->
+            <div class="product-details">
+                <div class="product-gallery">
+                    <img src="img/vela-7dias-laranja.jpg" alt="Vela 7 Dias Laranja" class="main-image">
+                    <div class="gallery-thumbnails">
+                        <img src="img/vela-7dias-laranja-1.jpg" alt="Vela 7 Dias Laranja - Detalhe 1" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                        <img src="img/vela-7dias-laranja-2.jpg" alt="Vela 7 Dias Laranja - Detalhe 2" 
+                             onclick="changeMainImage(this.closest('.product-gallery').querySelector('.main-image'), this.src, this.alt)">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-path">
+                        <i class="fas fa-chevron-right"></i> Produtos Religiosos / Velas / Velas 7 Dias
+                    </p>
+                    <h1>Vela 7 Dias Laranja - Unidade</h1>
+                    <p class="product-code">Código: V7D-LARANJA</p>
+                    <p class="price">R$ 9,90</p>
+                    <p class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>19 avaliações</span>
+                    </p>
+                    
+                    <div class="product-description">
+                        <p>Vela 7 dias laranja de alta qualidade, produzida com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais de alegria, criatividade, atração e trabalhos espirituais diversos.</p>
+                        
+                        <h3>Características:</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Parafina pura laranja</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Não produz fumaça preta</strong></li>
+                        </ul>
+                        
+                        <h4>Indicações:</h4>
+                        <ul>
+                            <li>Rituais de alegria e otimismo</li>
+                            <li>Trabalhos para criatividade e inspiração</li>
+                            <li>Atrair oportunidades e sucesso</li>
+                            <li>Energização e vitalidade</li>
+                        </ul>
+                        
+                        <div class="quantity-control">
+                            <button onclick="decreaseQuantity('qty-7dias-laranja')">-</button>
+                            <input type="number" id="qty-7dias-laranja" value="1" min="1" max="99">
+                            <button onclick="increaseQuantity('qty-7dias-laranja')">+</button>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="pdf-button" onclick="addToPdf('Vela 7 Dias Laranja', 9.90, 'qty-7dias-laranja')">
+                                <i class="fas fa-file-pdf"></i> Adicionar ao PDF
+                            </button>
+                            <button class="wishlist-button" onclick="addToWishlist('Vela 7 Dias Laranja', 9.90)">
+                                <i class="fas fa-heart"></i> Lista de Desejos
+                            </button>
+                            <button class="buy-button" onclick="buyProduct('Vela 7 Dias Laranja', 9.90, 'qty-7dias-laranja')">
+                                <i class="fas fa-shopping-cart"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão para gerar PDF de todos os pedidos -->
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="pdf-button" onclick="generateAllPdf()" style="padding: 15px 30px; font-size: 18px;">
+                    <i class="fas fa-file-pdf"></i> Gerar PDF com Todos os Pedidos
+                </button>
+            </div>
+            
+            <!-- Especificações gerais -->
+            <div class="product-specs">
+                <ul class="tabs">
+                    <li class="active" onclick="openTab(event, 'details')"><i class="fas fa-info-circle"></i> Detalhes</li>
+                    <li onclick="openTab(event, 'returns')"><i class="fas fa-undo"></i> Devolução</li>
+                    <li onclick="openTab(event, 'shipping')"><i class="fas fa-shipping-fast"></i> Entrega</li>
+                </ul>
+                
+                <div class="specs-content">
+                    <div id="details" class="active">
+                        <h3>Informações Técnicas</h3>
+                        <p>Velas 7 dias coloridas de alta qualidade, produzidas com parafina 100% pura que não produz fumaça preta nem mal cheiro. Ideal para rituais, decoração e meditação.</p>
+                        
+                        <h3>Características Técnicas:</h3>
+                        <ul>
+                            <li><strong>Fabricante:</strong> Candle Super Premium</li>
+                            <li><strong>Tipo:</strong> Vela 7 Dias Colorida</li>
+                            <li><strong>Formato de venda:</strong> Unidade</li>
+                            <li><strong>Dimensões:</strong> 7cm (diâmetro) × 12cm (altura)</li>
+                            <li><strong>Tempo de queima:</strong> Até 7 dias (varia conforme ambiente)</li>
+                            <li><strong>Peso:</strong> Aproximadamente 200g</li>
+                            <li><strong>Material:</strong> Parafina pura de alta qualidade</li>
+                            <li><strong>Produção de fumaça:</strong> Mínima, sem fumaça preta</li>
+                        </ul>
+
+                        <h3>Paleta de Cores Disponíveis:</h3>
+                        
+                        <h4>Cores Básicas:</h4>
+                        <ul class="color-list">
+                            <li>Branco</li>
+                            <li>Preto</li>
+                            <li>Vermelho</li>
+                            <li>Azul</li>
+                            <li>Verde</li>
+                            <li>Amarelo</li>
+                            <li>Rosa</li>
+                            <li>Roxo</li>
+                            <li>Laranja</li>
+                            <li>Marrom</li>
+                            <li>Lilás</li>
+                        </ul>
+
+                        <h4>Cores Especiais:</h4>
+                        <ul class="color-list">
+                            <li>Dourado</li>
+                            <li>Prateado</li>
+                        </ul>
+
+                        <div class="important-note">
+                            <h4>Observações Importantes:</h4>
+                            <p>A imagem do anúncio é meramente ilustrativa. Para receber as cores desejadas:</p>
+                            <ol>
+                                <li>Informe sua preferência no campo de mensagem do pedido</li>
+                                <li>Ou especifique no chat da compra</li>
+                                <li>O prazo para escolha das cores é de até 2 horas após a confirmação do pagamento</li>
+                            </ol>
+                            <p>Não havendo especificação, enviaremos um sortido das cores disponíveis.</p>
+                        </div>
+                    </div>                    
+                    <div id="returns">
+                        <h3>Política de Devolução</h3>
+                        <p>Produtos danificados durante o transporte podem ser trocados mediante comprovação fotográfica.</p>
+                        <p>Prazo para solicitação: 7 dias após o recebimento.</p>
+                        <p>Para solicitar uma devolução, entre em contato via WhatsApp informando o número do pedido e os motivos da devolução.</p>
+                        <p>As velas devem ser devolvidas na embalagem original, sem uso e em perfeito estado.</p>
+                    </div>
+                    
+                    <div id="shipping">
+                        <h3>Opções de Entrega</h3>
+                        <p>Enviamos para todo o Brasil através dos Correios e transportadoras parceiras.</p>
+                        <p><strong>Prazos médios de entrega:</strong></p>
+                        <ul>
+                            <li>Regiões Sudeste e Sul: 3 a 7 dias úteis</li>
+                            <li>Regiões Nordeste e Centro-Oeste: 5 a 10 dias úteis</li>
+                            <li>Região Norte: 7 a 15 dias úteis</li>
+                        </ul>
+                        <p>Frete calculado no fechamento do pedido de acordo com a localidade e quantidade.</p>
+                        <p>Entregas em capitais podem ter opção de retirada em pontos estratégicos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i> Tema Claro
+            </button>
+            <div class="footer-simple">
+                <p>Criado com GitHub por Black Tuxedo E-Commerce Brasil CNPJ: 37.258.590/0001-67</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Função para mostrar a categoria selecionada no mobile
+        function showSelectedCategory() {
+            const selector = document.getElementById('category-selector');
+            const selectedValue = selector.value;
+            const productSections = document.querySelectorAll('.product-section');
+            
+            // Esconde todas as seções primeiro
+            productSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Mostra apenas a seção selecionada
+            if (selectedValue) {
+                const selectedSection = document.getElementById(`${selectedValue}-section`);
+                if (selectedSection) {
+                    selectedSection.style.display = 'block';
+                    
+                    // Rola suavemente para a seção selecionada
+                    setTimeout(() => {
+                        selectedSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
+                }
+            }
+        }
+
+        // Ativa a primeira categoria por padrão no mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                // Mostra o seletor de categoria
+                document.querySelector('.mobile-category-selector').style.display = 'block';
+                
+                // Esconde todas as categorias exceto a primeira
+                const productSections = document.querySelectorAll('.product-section');
+                productSections.forEach((section, index) => {
+                    section.style.display = index === 0 ? 'block' : 'none';
+                });
+                
+                // Define o valor do seletor para a primeira opção
+                document.getElementById('category-selector').value = 'velas-7-dias';
+            }
+        });
+
+        // Desativa o botão da categoria atual
+        function disableCurrentCategoryButton() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const buttons = document.querySelectorAll('.view-catalog');
+            
+            buttons.forEach(button => {
+                const buttonHref = button.getAttribute('href').split('/').pop();
+                if (buttonHref === currentPage) {
+                    button.classList.add('current-page');
+                    button.style.opacity = '0.6';
+                    button.style.cursor = 'not-allowed';
+                    button.onclick = (e) => e.preventDefault();
+                }
+            });
+        }
+
+        // Chamar a função quando o DOM estiver carregado
+        document.addEventListener('DOMContentLoaded', function() {
+            disableCurrentCategoryButton();
+            
+            // Restante do código existente...
+            if (window.innerWidth <= 768) {
+                document.querySelector('.product-section').style.display = 'block';
+            }
+        });
+
+        // Função para alternar entre os temas claro e escuro
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
+                document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-moon"></i> Tema Escuro';
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+                document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun"></i> Tema Claro';
+            }
+        }
+
+        // Função para rolar as categorias
+        function scrollCategories(amount) {
+            const categories = document.querySelector('.categories');
+            categories.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+
+        // Função para abrir as abas de detalhes
+        function openTab(evt, tabName) {
+            const tabContents = document.querySelectorAll('.specs-content > div');
+            const tabLinks = document.querySelectorAll('.tabs li');
+            
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            tabLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Função para buscar produtos
+        function searchProducts() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const productSections = document.querySelectorAll('.product-section');
+            let found = false;
+            
+            productSections.forEach(section => {
+                const productName = section.querySelector('h1').textContent.toLowerCase();
+                const productDesc = section.querySelector('.product-description').textContent.toLowerCase();
+                
+                if (productName.includes(searchTerm) || productDesc.includes(searchTerm)) {
+                    section.style.display = 'block';
+                    found = true;
+                    
+                    // Rolagem suave para o produto encontrado
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            
+            if (!found) {
+                alert('Nenhum produto encontrado com o termo: ' + searchTerm);
+            }
+        }
+
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.overlay').classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar no overlay
+        document.querySelector('.overlay').addEventListener('click', function() {
+            this.classList.remove('active');
+            document.querySelector('.mobile-menu').classList.remove('active');
+            document.querySelector('.menu-toggle').classList.remove('active');
+        });
+
+        // Animação de texto alternado
+        const textOptions = [
+            ["ALGUIDARES", "VELAS PALITOS", "QUARTINHAS", "VELAS 7 DIAS", "TINTURAS MAGIAS", "BANHOS DE ERVAS", "TRIDENTES", "BARALHOS DIVERSOS"],
+            ["NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA", "NOSSA LOJA"]
+        ];
+
+        function updateAnimatedText() {
+            const container = document.getElementById('animated-text-container');
+            // Escolhe aleatoriamente entre as duas opções de texto
+            const selectedOption = Math.random() > 0.5 ? textOptions[0] : textOptions[1];
+            
+            // Limpa o container
+            container.innerHTML = '';
+            
+            // Adiciona os textos duplicados para fluxo contínuo
+            for (let i = 0; i < 2; i++) { // Duplica o conteúdo para criar fluxo contínuo
+                selectedOption.forEach(text => {
+                    const textElement = document.createElement('div');
+                    textElement.className = 'sine-wave-text';
+                    textElement.textContent = text;
+                    container.appendChild(textElement);
+                });
+            }
+        }
+
+        // Inicializa o texto animado e atualiza periodicamente
+        updateAnimatedText();
+        setInterval(updateAnimatedText, 15000); // Muda a cada 15 segundos
+
+        // Mostra a primeira seção por padrão no mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.product-section').style.display = 'block';
+            }
+        });
+
+        // Função para mudar a imagem principal quando clicar nas miniaturas
+        function changeMainImage(mainImageElement, newSrc, newAlt) {
+            mainImageElement.style.opacity = 0;
+            setTimeout(() => {
+                mainImageElement.src = newSrc;
+                mainImageElement.alt = newAlt;
+                mainImageElement.style.opacity = 1;
+                
+                // Remove a classe 'active' de todas as miniaturas
+                const thumbnails = mainImageElement.closest('.product-gallery').querySelectorAll('.gallery-thumbnails img');
+                thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                
+                // Adiciona a classe 'active' na miniatura clicada
+                event.target.classList.add('active');
+            }, 200);
+        }
+
+        // Função para selecionar variantes de produto
+        function selectVariant(element, variant, quantityId) {
+            // Remove a classe 'selected' de todas as opções
+            const options = element.parentElement.querySelectorAll('.variant-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Adiciona a classe 'selected' na opção clicada
+            element.classList.add('selected');
+            
+            // Atualiza o ID da quantidade se necessário
+            if (quantityId) {
+                // Lógica para atualizar o produto com a variante selecionada
+            }
+        }
+
+        // Funções para controle de quantidade
+        function increaseQuantity(id) {
+            const input = document.getElementById(id);
+            if (input.value < parseInt(input.max)) {
+                input.value = parseInt(input.value) + 1;
+            }
+        }
+
+        function decreaseQuantity(id) {
+            const input = document.getElementById(id);
+            if (input.value > parseInt(input.min)) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // Funções para os botões (simuladas)
+        function addToPdf(productName, price, quantityId) {
+            const quantity = document.getElementById(quantityId).value;
+            alert(`Adicionado ao PDF: ${quantity}x ${productName} - R$ ${(price * quantity).toFixed(2)}`);
+        }
+
+        function addToWishlist(productName, price) {
+            alert(`${productName} adicionado à lista de desejos!`);
+        }
+
+        function buyProduct(productName, price, quantityId) {
+            const quantity = document.getElementById(quantityId).value;
+            alert(`Compra realizada: ${quantity}x ${productName} - R$ ${(price * quantity).toFixed(2)}`);
+        }
+
+        function generateAllPdf() {
+            alert("PDF com todos os pedidos gerado com sucesso!");
+        }
+    </script>
+</body>
+</html>
