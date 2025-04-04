@@ -7,6 +7,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <style>
+        /* Estilos para a barra de pesquisa - INÍCIO */
+        .search-bar-container {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 8px 15px;
+            width: 100%;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            width: 100%;
+            font-size: 14px;
+            background-color: transparent;
+        }
+
+        .search-bar i {
+            color: #555;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        .search-bar i:hover {
+            color: #000;
+        }
+
+        .search-results-container {
+            position: absolute;
+            width: 100%;
+            background-color: var(--card-color);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            margin-top: 5px;
+        }
+
+        .search-result-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--secondary-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .search-result-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .search-result-item .item-info {
+            flex: 1;
+        }
+
+        .search-result-item .item-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--product-text-color);
+            margin-bottom: 4px;
+        }
+
+        .search-result-item .item-price {
+            font-size: 14px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .no-results {
+            padding: 15px;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .search-bar-container {
+                max-width: 100%;
+                margin-top: 10px;
+            }
+        }
+        /* Estilos para a barra de pesquisa - FIM */
+
         /* Melhorias para o seletor de categoria mobile */
         .mobile-category-selector {
             display: none;
@@ -334,35 +437,7 @@
             align-items: center;
         }
         
-        .search-bar {
-            flex: 1;
-            min-width: 200px; /* Largura mínima reduzida */
-            max-width: 400px; /* Largura máxima definida */
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 8px 15px;
-        }
-        
-        .search-bar input {
-            border: none;
-            outline: none;
-            padding: 5px;
-            width: 100%;
-            font-size: 14px;
-        }
-        
-        .search-bar i {
-            color: #555;
-            cursor: pointer;
-            margin-left: 10px;
-            transition: color 0.3s;
-        }
-        
-        .search-bar i:hover {
-            color: #000;
-        }
+        /* Removido o .search-bar original pois já temos o novo estilo */
         
         /* Reduzir o tamanho dos botões */
         .login-button, .delete-data-button {
@@ -847,7 +922,8 @@
                 justify-content: space-between;
             }
             
-            .search-bar {
+            /* Ajuste para a nova barra de pesquisa */
+            .search-bar-container {
                 min-width: 100%;
                 max-width: 100%;
             }
@@ -900,7 +976,7 @@
         // Mostra banner apenas se não tiver sido ignorado
         if (!localStorage.getItem('manutencaoBannerIgnorado') || 
             (localStorage.getItem('manutencaoBannerIgnoradoAte') && 
-             Date.now() > parseInt(localStorage.getItem('manutencaoBannerIgnoradoAte')))) {
+             Date.now() > parseInt(localStorage.getItem('manutencaoBannerIgnoradoAte')) {
             document.querySelector('.site-notice').style.display = 'block';
         }
     </script>
@@ -959,9 +1035,13 @@
                     </a>
                 </div>
                 
-                <div class="search-bar">
-                    <input type="text" id="search" placeholder="Buscar produto">
-                    <i class="fas fa-search" onclick="searchProducts()"></i>
+                <!-- Nova barra de pesquisa -->
+                <div class="search-bar-container">
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Buscar produto..." autocomplete="off">
+                        <i class="fas fa-search" id="searchButton"></i>
+                    </div>
+                    <div class="search-results-container" id="searchResults"></div>
                 </div>
             </div>
         </div>
@@ -2835,6 +2915,346 @@
 
     <!-- JavaScript -->
     <script>
+        // Função para formatar strings (remover acentos, espaços, lowercase)
+function formatString(value) {
+    if (!value) return '';
+    return value
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+}
+
+// Função principal de busca
+function performSearch() {
+    const searchTerm = document.getElementById('searchInput').value;
+    const searchResults = document.getElementById('searchResults');
+    
+    if (!searchTerm || searchTerm.length < 2) {
+        searchResults.style.display = 'none';
+        return;
+    }
+    
+    const formattedSearchTerm = formatString(searchTerm);
+    const results = productsData.filter(product => {
+        return formatString(product.title).includes(formattedSearchTerm) || 
+               formatString(product.description).includes(formattedSearchTerm) ||
+               formatString(product.category).includes(formattedSearchTerm);
+    });
+    
+    displaySearchResults(results);
+}
+
+// Função para exibir resultados
+function displaySearchResults(results) {
+    const searchResults = document.getElementById('searchResults');
+    searchResults.innerHTML = '';
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">Nenhum produto encontrado</div>';
+    } else {
+        results.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            resultItem.innerHTML = `
+                <img src="${product.image}" alt="${product.title}" onerror="this.src='img/placeholder.jpg'">
+                <div class="item-info">
+                    <div class="item-title">${product.title}</div>
+                    <div class="item-price">${product.price}</div>
+                    <div class="item-category">${product.category}</div>
+                </div>
+            `;
+            
+            resultItem.addEventListener('click', () => {
+                window.location.href = product.link;
+                searchResults.style.display = 'none';
+            });
+            
+            searchResults.appendChild(resultItem);
+        });
+    }
+    
+    searchResults.style.display = 'block';
+}
+
+// Event listeners
+document.getElementById('searchInput').addEventListener('input', () => {
+    clearTimeout(window.searchTimeout);
+    window.searchTimeout = setTimeout(performSearch, 300);
+});
+
+document.getElementById('searchInput').addEventListener('focus', function() {
+    if (this.value && this.value.length >= 2) {
+        performSearch();
+    }
+});
+
+document.getElementById('searchButton').addEventListener('click', performSearch);
+
+// Fechar resultados ao clicar fora
+document.addEventListener('click', function(event) {
+    const searchResults = document.getElementById('searchResults');
+    const searchBarContainer = document.querySelector('.search-bar-container');
+    
+    if (!searchBarContainer.contains(event.target)) {
+        searchResults.style.display = 'none';
+    }
+});
+
+        // Lista de produtos para busca
+        const productsData = [
+            {
+                title: "Alguidar de Barro para Rituais",
+                description: "Símbolo de equilíbrio e ancestralidade, o alguidar de barro é essencial para rituais, oferendas e práticas espirituais.",
+                price: "R$ 08,90 - R$ 44,90",
+                image: "img/alguidares/alguidar.png",
+                link: "#alguidares-section",
+                category: "Alguidares"
+            },
+            {
+                title: "Vela Palito Colorida",
+                description: "Vela palito colorida, essencial para rituais religiosos, trabalhos espirituais e iluminação de ambientes sagrados.",
+                price: "R$ 1,50 - R$ 50,00",
+                image: "img/velas-palitos/velas-palito.png",
+                link: "#velas-palitos-section",
+                category: "Velas Palitos Coloridas"
+            },
+            {
+                title: "Quartinhas de Barro e Cerâmica",
+                description: "Quartinhas ritualísticas essenciais para trabalhos espirituais na Umbanda e Candomblé.",
+                price: "R$ 19,90 - R$ 79,90",
+                image: "img/quartinhas/quartinhas.png",
+                link: "#quartinhas-section",
+                category: "Quartinhas Barro e Cerâmica"
+            },
+            {
+                title: "Vela 7 Dias Colorida",
+                description: "Vela 7 dias colorida de alta qualidade, essencial para trabalhos espirituais prolongados.",
+                price: "R$ 12,00 - R$ 25,00",
+                image: "img/velas7dias/velas-7-dias-detalhe.png",
+                link: "#velas-7-dias-section",
+                category: "Velas 7 Dias Coloridas"
+            },
+            {
+                title: "Tinturas para Trabalhos Mágicos",
+                description: "Tinturas mágicas preparadas com ervas sagradas e elementos naturais para diversos fins espirituais.",
+                price: "R$ 10,90 - R$ 75,00",
+                image: "img/tinturas/tinturas.png",
+                link: "#tinturas-magias-section",
+                category: "Tinturas para Magias"
+            },
+            {
+                title: "Banhos de Ervas para Limpeza Espiritual",
+                description: "Misturas de ervas sagradas selecionadas para banhos de limpeza e descarrego espiritual.",
+                price: "R$ 5,90 - R$ 35,00",
+                image: "img/banhos/banhos-de-ervas00.png",
+                link: "#banhos-de-ervas-section",
+                category: "Banhos de Ervas"
+            },
+            {
+                title: "Tridente Temporal e Atemporal",
+                description: "Tridente ritualístico em metal, símbolo de poder e proteção espiritual.",
+                price: "R$ 9,90 - R$ 25,00",
+                image: "img/tridentes/tridentes.png",
+                link: "#tridentes-section",
+                category: "Tridentes"
+            },
+            {
+                title: "Baralhos Diversos para Jogos Divinatórios",
+                description: "Baralhos especiais para jogos divinatórios e consultas espirituais.",
+                price: "R$ 15,00 - R$ 80,00",
+                image: "img/baralhos/baralhos.png",
+                link: "#baralhos-diversos-section",
+                category: "Baralhos Diversos"
+            },
+            {
+                title: "Pedras Naturais para Energização",
+                description: "Seleção de pedras e cristais naturais para energização, proteção e equilíbrio espiritual.",
+                price: "R$ 03,90 - R$ 278,30",
+                image: "img/pedras/pedras-naturais.png",
+                link: "#pedras-naturais-section",
+                category: "Pedras Naturais"
+            },
+            {
+                title: "Pós e Óleos para Trabalhos Espirituais",
+                description: "Pós e óleos essenciais preparados com ervas selecionadas para diversos fins espirituais.",
+                price: "R$ 30,00 - R$ 80,00",
+                image: "img/oleos/oleos-pos.png",
+                link: "#pos-e-oleos-section",
+                category: "Pós e Óleos"
+            },
+            {
+                title: "Pregos Ritualísticos para Trabalhos Espirituais",
+                description: "Pregos ritualísticos utilizados em trabalhos de magia e proteção espiritual.",
+                price: "R$ 5,00 - R$ 35,00",
+                image: "img/pregos/prego.png",
+                link: "#pregos-section",
+                category: "Pregos"
+            },
+            {
+                title: "Parafusos Ritualísticos para Trabalhos Espirituais",
+                description: "Parafusos ritualísticos utilizados em trabalhos de magia e proteção espiritual.",
+                price: "R$ 6,00 - R$ 18,00",
+                image: "img/parafusos/parafuso.png",
+                link: "#parafusos-section",
+                category: "Parafusos"
+            },
+            {
+                title: "Toalhas Esotéricas para Rituais",
+                description: "Toalhas esotéricas com símbolos sagrados para uso em altares, rituais e trabalhos espirituais.",
+                price: "R$ 25,00 - R$ 60,00",
+                image: "img/toalhas/toalhas-esotericas.png",
+                link: "#toalhas-esotericas-section",
+                category: "Toalhas Esotéricas"
+            },
+            {
+                title: "Velas Temáticas para Magias",
+                description: "Velas coloridas e temáticas para diversos tipos de magias e trabalhos espirituais.",
+                price: "R$ 8,00 - R$ 25,00",
+                image: "img/velas-tematicas/velas-tematicas.png",
+                link: "#velas-para-magias-section",
+                category: "Velas Temáticas"
+            },
+            {
+                title: "Pulseiras de Proteção Espiritual",
+                description: "Pulseiras artesanais feitas com contas e pedras naturais, cada uma com propriedades específicas de proteção e energização.",
+                price: "R$ 25,00 - R$ 45,00",
+                image: "img/pulseiras/pulseiras.png",
+                link: "#pulseiras-section",
+                category: "Pulseiras"
+            },
+            {
+                title: "Charutos para Defumação e Oferendas",
+                description: "Charutos artesanais de qualidade para uso em defumações, rituais e oferendas.",
+                price: "R$ 04,50 - R$ 96,90",
+                image: "img/charutos/charutos.png",
+                link: "#charutos-section",
+                category: "Charutos"
+            },
+            {
+                title: "Fios de Contas para Proteção Espiritual",
+                description: "Fios de contas tradicionais feitos com materiais naturais, cada cor representando um orixá ou energia específica.",
+                price: "R$ 49,90 - R$ 435,90",
+                image: "img/fios/fios-de-contas.png",
+                link: "#fio-de-contas-section",
+                category: "Fio de Contas"
+            },
+            {
+                title: "Outros Produtos Religiosos",
+                description: "Variedade de produtos religiosos para complementar seus rituais e práticas espirituais.",
+                price: "R$ 2,00 - R$ 496,80",
+                image: "img/outros/outros-produtos.png",
+                link: "#outros-produtos-section",
+                category: "Outros Produtos"
+            }
+        ];
+
+        // Função para formatar strings (remover acentos, espaços, lowercase)
+        function formatString(value) {
+            if (!value) return '';
+            return value
+                .trim()
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+        // Função para buscar produtos
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            const searchResults = document.getElementById('searchResults');
+            
+            if (!searchTerm || searchTerm.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            const formattedSearchTerm = formatString(searchTerm);
+            const results = productsData.filter(product => {
+                return formatString(product.title).includes(formattedSearchTerm) || 
+                       formatString(product.description).includes(formattedSearchTerm) ||
+                       formatString(product.category).includes(formattedSearchTerm);
+            });
+            
+            displaySearchResults(results);
+        }
+
+        // Função para exibir os resultados da busca
+        function displaySearchResults(results) {
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = '<div class="no-results">Nenhum produto encontrado</div>';
+            } else {
+                results.forEach(product => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <img src="${product.image}" alt="${product.title}" onerror="this.src='img/placeholder.jpg'">
+                        <div class="item-info">
+                            <div class="item-title">${product.title}</div>
+                            <div class="item-price">${product.price}</div>
+                            <div class="item-category" style="font-size:12px;color:#888;">${product.category}</div>
+                        </div>
+                    `;
+                    
+                    resultItem.addEventListener('click', () => {
+                        window.location.href = product.link;
+                        searchResults.style.display = 'none';
+                        // Mostra a seção correspondente no mobile
+                        if (window.innerWidth <= 768) {
+                            document.querySelectorAll('.product-section').forEach(section => {
+                                section.style.display = 'none';
+                            });
+                            document.querySelector(product.link).style.display = 'block';
+                        }
+                    });
+                    
+                    searchResults.appendChild(resultItem);
+                });
+            }
+            
+            searchResults.style.display = 'block';
+        }
+
+        // Event listeners para a barra de pesquisa
+        document.getElementById('searchInput').addEventListener('input', () => {
+            // Adiciona um pequeno atraso para evitar buscas a cada tecla pressionada
+            clearTimeout(window.searchTimeout);
+            window.searchTimeout = setTimeout(performSearch, 300);
+        });
+
+        document.getElementById('searchInput').addEventListener('focus', function() {
+            if (this.value && this.value.length >= 2) {
+                performSearch();
+            }
+        });
+
+        document.getElementById('searchButton').addEventListener('click', performSearch);
+
+        // Fechar os resultados ao clicar fora
+        document.addEventListener('click', function(event) {
+            const searchResults = document.getElementById('searchResults');
+            const searchBarContainer = document.querySelector('.search-bar-container');
+            
+            if (!searchBarContainer.contains(event.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Fechar resultados ao pressionar ESC
+        document.getElementById('searchInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
+
+        // Fechar resultados ao mudar de página
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('searchResults').style.display = 'none';
+        });
+
         // Função para mostrar a categoria selecionada no mobile
         function showSelectedCategory() {
             const selector = document.getElementById('category-selector');
@@ -2947,32 +3367,6 @@
             
             document.getElementById(tabName).classList.add('active');
             evt.currentTarget.classList.add('active');
-        }
-
-        // Função para buscar produtos
-        function searchProducts() {
-            const searchTerm = document.getElementById('search').value.toLowerCase();
-            const productSections = document.querySelectorAll('.product-section');
-            let found = false;
-            
-            productSections.forEach(section => {
-                const productName = section.querySelector('h1').textContent.toLowerCase();
-                const productDesc = section.querySelector('.product-description').textContent.toLowerCase();
-                
-                if (productName.includes(searchTerm) || productDesc.includes(searchTerm)) {
-                    section.style.display = 'block';
-                    found = true;
-                    
-                    // Rolagem suave para o produto encontrado
-                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    section.style.display = 'none';
-                }
-            });
-            
-            if (!found) {
-                alert('Nenhum produto encontrado com o termo: ' + searchTerm);
-            }
         }
 
         // Menu mobile toggle
